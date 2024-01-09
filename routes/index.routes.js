@@ -11,7 +11,7 @@ router.get("/menu", (req, res, next) => {
   res.render("menu");
 });
 
-/* --------PROFILE PAGE --------*/
+/* -------- PROFILE PAGE --------*/
 router.get("/profile", (req, res, next) => {
   res.render("profile");
 });
