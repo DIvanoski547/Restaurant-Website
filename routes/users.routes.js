@@ -3,10 +3,13 @@ const router = express.Router();
 
 const User = require("../models/User.model");
 
-/* -------- PROFILE PAGE --------*/
-router.get("/profile", (req, res, next) => {
-    res.render("user/profile");
-  });
+/* CREATE USER */
+
+/* GET ALL USERS */
+
+/* EDIT USER */
+
+/* DELETE USER */
 
 
 
