@@ -1,24 +1,36 @@
-<div id="login-form">
+<div id="login-form" class="mb-3">
   <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+<form action="/auth/login" method="POST"></form>
+{{!-- EMAIL FORM --}}
+<div class="row g-3 align-items-center">
+  <div class="col-1">
+    <label for="inputemail" class="col-form-label">Email Adress</label>
+  </div>
+  <div class="col-auto">
+    <input type="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+</div>
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+{{!-- PASSWORD FORM  --}}
+<div class="row g-3 align-items-center">
+  <div class="col-1">
+    <label for="inputPassword6" class="col-form-label">Password</label>
+  </div>
+  <div class="col-auto">
+    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+      Must be 8-20 characters long.
+    </span>
+  </div>
+</div>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Log In</button>
-
+<button type="submit">Login</button>
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
 </div>
+

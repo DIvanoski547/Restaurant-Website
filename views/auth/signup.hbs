@@ -1,18 +1,45 @@
-<div id="form">
+<div id="signup-form" class="mb-3">
   <h2>Sign Up</h2>
   <form action="/auth/signup" method="POST">
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+<div class="row g-3 align-items-center">
+  <div class="col-1">
+    <label for="inputusername" class="col-form-label">Username:</label>
+  </div>
+  <div class="col-auto">
+    <input type="username" id="inputusername" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+    <div class="col-auto">
+    <span id="usernameHelpInline" class="form-text">
+      username help line
+    </span>
+  </div>
+</div>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+{{!-- EMAIL FORM --}}
+<div class="row g-3 align-items-center">
+  <div class="col-1">
+    <label for="inputemail" class="col-form-label">Email Adress</label>
+  </div>
+  <div class="col-auto">
+    <input type="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+</div>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+{{!-- PASSWORD FORM  --}}
+<div class="row g-3 align-items-center">
+  <div class="col-1">
+    <label for="inputPassword6" class="col-form-label">Password</label>
+  </div>
+  <div class="col-auto">
+    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+  </div>
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+      Must be 8-20 characters long.
+    </span>
+  </div>
+</div>
 
     <button type="submit">Sign Up</button>
 
@@ -22,3 +49,4 @@
     {{/if}}
   </form>
 </div>
+
