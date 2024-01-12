@@ -94,20 +94,6 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     return;
   };
 
-  // Here we use the same logic as above
-  // - either length based parameters or we check the strength of a password
-
-  /*-----NOT SURE IF WE NEED TO CHECK PASSWORD LENGTH DURING LOGIN-----*/
-  /*-----IT'S PROBABLY ENOUGH IF THE PASSWORD IS JUST WRONG-----*/
-  // if (password.length < 8) {
-  //   res.render(
-  //     "auth/login",
-  //     { errorMessage: "Your password needs to be a minimum of 8 characters." }
-  //     );
-  //   return;
-  // };
-
-
   User.findOne({ email })
     .then(foundUser => {
         console.log('Found user:', foundUser)
@@ -139,39 +125,6 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         console.log('Error logging user in: ', error);
         next(error);
     });
-
-  // Search the database for a user with the email submitted in the form
-  // User.findOne({ email })
-  //   .then((user) => {
-  //     // If the user isn't found, send an error message that user provided wrong credentials
-  //     if (!user) {
-  //       res
-  //         .status(400)
-  //         .render("auth/login", { errorMessage: "Wrong credentials." });
-  //       return;
-  //     }
-
-  //     // If user is found based on the username, check if the in putted password matches the one saved in the database
-  //     bcrypt
-  //       .compare(password, user.password)
-  //       .then((isSamePassword) => {
-  //         if (!isSamePassword) {
-  //           res
-  //             .status(400)
-  //             .render("auth/login", { errorMessage: "Wrong credentials." });
-  //           return;
-  //         }
-
-  //         // Add the user object to the session object
-  //         req.session.currentUser = user.toObject();
-  //         // Remove the password field
-  //         delete req.session.currentUser.password;
-
-  //         res.redirect("/");
-  //       })
-  //       .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
-  //   })
-  //   .catch((err) => next(err));
 });
 
 /*-----POST LOGOUT-----*/
@@ -182,17 +135,6 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
     res.redirect('/');
   });
 });
-
-// router.post("/logout", isLoggedIn, (req, res, next) => {
-//   req.session.destroy((err) => {
-//     if (err) {
-//       res.status(500).render("auth/logout", { errorMessage: err.message });
-//       return;
-//     }
-
-//     res.redirect("/");
-//   });
-// });
 
 /*-----GET PROFILE PAGE-----*/
   router.get("/profile", isLoggedIn, (req, res, next) => {
