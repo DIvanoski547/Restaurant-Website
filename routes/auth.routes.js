@@ -12,7 +12,7 @@ const saltRounds = 10;
 const User = require("../models/User.model");
 
 // Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
-const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrEditor } = require('../middleware/route-guard.js');
+const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../middleware/route-guard.js');
 
 /*-----GET SIGNUP PAGE-----*/
 router.get("/signup", isLoggedOut, (req, res, next) => {
