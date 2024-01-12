@@ -82,14 +82,14 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 /*-----POST LOGIN ROUTE-----*/
 router.post("/login", isLoggedOut, (req, res, next) => {
-  console.log('SESSION =====> ', req.session);
-  const { username, email, password } = req.body;
+  console.log('ACTIVE SESSION =====> ', req.session);
+  const { email, password } = req.body;
 
-  // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  // Check that email, and password are provided
+  if (email === "" || password === "") {
     res.render(
       "auth/login",
-      { errorMessage: "All fields are mandatory. Please provide username, email and password." }
+      { errorMessage: "All fields are mandatory. Please provide email and password." }
       );
     return;
   };
@@ -108,21 +108,21 @@ router.post("/login", isLoggedOut, (req, res, next) => {
   // };
 
 
-  User.findOne({ username })
+  User.findOne({ email })
     .then(foundUser => {
         console.log('Found user:', foundUser)
       if (!foundUser) {
-        console.log("Username not registered in database.");
+        console.log("Email address not registered in database.");
         res.render(
           'auth/login',
-          { errorMessage: 'Invalid username or password. Please try again.' }
+          { errorMessage: 'Invalid email or password. Please try again.' }
           );
         return;
       }
       else if (bcrypt.compareSync(password, foundUser.password)) {
         //******* SAVE THE USER IN THE SESSION ********//
         req.session.currentUser = foundUser;
-        console.log(`${foundUser.username} has successfully logged in.`)
+        console.log(`${foundUser.email} has successfully logged in.`)
         // Clear the password field
         delete req.session.currentUser.password;
         res.redirect('/');
