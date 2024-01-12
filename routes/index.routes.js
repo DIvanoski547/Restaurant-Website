@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page */
-router.get("/", (req, res, next) => {
+// Require necessary middleware to control access to specific routes
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
+
+/*-----GET HOME PAGE-----*/
+router.get("/", isLoggedIn, (req, res, next) => {
   res.render("index");
 });
 
