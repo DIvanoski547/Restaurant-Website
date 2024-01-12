@@ -62,14 +62,18 @@
             </nav> --}}
 
             <div class="navbar-nav">
-              <a class="nav-link" href="/">Home</a>
-              <a class="nav-link" href="/menu">Menu</a>
-              <a class="nav-link" href="/login">Login</a>
-              <a class="nav-link" href="/signup">Signup</a>
-              <a class="nav-link" href="/About">About</a>
               {{#if userInSession.username}}
-                <a class="nav-link" href="/logout">Logout</a>
-                <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" href="/">Home</a>
+      	        <a class="nav-link" href="/profile">Profile</a>
+      	        <a class="nav-link" href="/menu">Menu</a>
+                <a class="nav-link" href="/About">About</a>
+      	        <a class="nav-link" href="/logout">Logout</a>
+              {{else}}
+                <a class="nav-link" href="/">Home</a>
+      	        <a class="nav-link" href="/signup">Sign up</a>
+      	        <a class="nav-link" href="/menu">Menu</a>
+                <a class="nav-link" href="/About">About</a>
+      	        <a class="nav-link" href="/login">Login</a>
               {{/if}}
 
             </div>
