@@ -67,7 +67,10 @@
       	        <a class="nav-link" href="/profile">Profile</a>
       	        <a class="nav-link" href="/menu">Menu</a>
                 <a class="nav-link" href="/about">About</a>
-      	        <a class="nav-link" href="/logout">Logout</a>
+                <form id="logout-form" action="/logout" method="POST">
+                  {{!-- <a class="nav-link" href="/logout">Logout</a> DO NOT NEED THIS BECAUSE IT LINKS TO A LOGOUT PAGE, WHICH WE DO NOT NEED. ONLY NEED A BUTTON --}}
+                  <button>Logout</button>
+                </form>
               {{else}}
                 <a class="nav-link" href="/">Home</a>
       	        <a class="nav-link" href="/signup">Sign up</a>
