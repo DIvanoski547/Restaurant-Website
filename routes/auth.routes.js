@@ -11,13 +11,13 @@ const saltRounds = 10;
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
 
-// Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
+// Require necessary middleware to control access to specific routes
 const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../middleware/route-guard.js');
 
 /*-----GET SIGNUP PAGE-----*/
 router.get("/signup", isLoggedOut, (req, res, next) => {
   console.log("req.session Signup", req.session)
-  res.render("auth/signup");
+  res.render("auth/signup")
 });
 
 /*-----POST SIGNUP PAGE-----*/
@@ -26,13 +26,15 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
 
   // Check that a username, email, and password have been provided
   if (username === "" || email === "" || password === "") {
+    console.log("Either a username, email or a password or all three have not been entered.")
     res.render(
       "auth/signup",
       { errorMessage: "All fields are mandatory. Please provide a username, email and password." }
       );
     return;
-  }
+  };
 
+  // Check that the password is at least 8 characters long
   if (password.length < 8) {
     res.render(
       "auth/signup",
@@ -72,45 +74,6 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
           next(error);
       });
 });
-
-  //   ! This regular expression checks password for special characters and minimum length
-  /*
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-  if (!regex.test(password)) {
-    res
-      .status(400)
-      .render("auth/signup", {
-        errorMessage: "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter."
-    });
-    return;
-  }
-  */
-
-  // Create a new user - start by hashing the password
-
-//   bcrypt
-//     .genSalt(saltRounds)
-//     .then((salt) => bcrypt.hash(password, salt))
-//     .then((hashedPassword) => {
-//       // Create a user and save it in the database
-//       return User.create({ username, email, password: hashedPassword });
-//     })
-//     .then((user) => {
-//       res.redirect("/auth/login");
-//     })
-//     .catch((error) => {
-//       if (error instanceof mongoose.Error.ValidationError) {
-//         res.status(500).render("auth/signup", { errorMessage: error.message });
-//       } else if (error.code === 11000) {
-//         res.status(500).render("auth/signup", {
-//           errorMessage:
-//             "Username and email need to be unique. Provide a valid username or email.",
-//         });
-//       } else {
-//         next(error);
-//       }
-//     });
-// });
 
 /*-----GET LOGIN PAGE-----*/
 router.get("/login", isLoggedOut, (req, res) => {
