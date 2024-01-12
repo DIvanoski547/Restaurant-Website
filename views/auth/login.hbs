@@ -1,36 +1,60 @@
 <div id="login-form" class="mb-3">
   <h2>Log In</h2>
-<form action="/auth/login" method="POST"></form>
-{{!-- EMAIL FORM --}}
-<div class="row g-3 align-items-center">
-  <div class="col-1">
-    <label for="inputemail" class="col-form-label">Email Adress</label>
-  </div>
-  <div class="col-auto">
-    <input type="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
-  </div>
-</div>
+  <form action="/login" method="POST"></form>
+    {{!-- EMAIL FORM --}}
+    <div class="row g-3 align-items-center">
+      <div class="col-1">
+        <label for="inputemail" class="col-form-label">Email Address</label>
+      </div>
+      <div class="col-auto">
+        <input type="email" name="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
+      </div>
+    </div>
 
-{{!-- PASSWORD FORM  --}}
-<div class="row g-3 align-items-center">
-  <div class="col-1">
-    <label for="inputPassword6" class="col-form-label">Password</label>
-  </div>
-  <div class="col-auto">
-    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-  </div>
-  <div class="col-auto">
-    <span id="passwordHelpInline" class="form-text">
-      Must be 8-20 characters long.
-    </span>
-  </div>
-</div>
+    {{!-- PASSWORD FORM  --}}
+    <div class="row g-3 align-items-center">
+      <div class="col-1">
+        <label for="inputPassword6" class="col-form-label">Password</label>
+      </div>
+      <div class="col-auto">
+        <input type="password" name="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+      </div>
+      <div class="col-auto">
+        <span id="passwordHelpInline" class="form-text">
+          Must be 8-20 characters long.
+        </span>
+      </div>
+    </div>
 
-<button type="submit">Login</button>
+    <button type="submit">Log in</button>
 
     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+      <p style="color: red;" class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
 </div>
 
+{{!-- LOGIN BUTTON ABOVE DOES NOT WORK --}}
+
+<h1>Login Page</h1>
+
+<div id="login-form">
+  <h2>Login</h2>
+
+  <form action="/login" method="POST">
+
+    <label> Email Address
+      <input type="text" name="email" placeholder="dave@chappelle.com" />
+    </label>
+
+    <label>Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <button type="submit">Log in</button>
+
+    {{#if errorMessage}}
+      <p class="error" style="color:red;">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
