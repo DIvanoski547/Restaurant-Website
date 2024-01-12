@@ -1,13 +1,13 @@
 <div id="signup-form" class="mb-3">
   <h2>Sign Up</h2>
-  <form action="/auth/signup" method="POST">
+  <form action="/signup" method="POST">
 
 <div class="row g-3 align-items-center">
   <div class="col-1">
     <label for="inputusername" class="col-form-label">Username:</label>
   </div>
   <div class="col-auto">
-    <input type="username" id="inputusername" class="form-control" aria-describedby="passwordHelpInline">
+    <input type="username" name='username' id="inputusername" class="form-control" aria-describedby="passwordHelpInline">
   </div>
     <div class="col-auto">
     <span id="usernameHelpInline" class="form-text">
@@ -22,7 +22,7 @@
     <label for="inputemail" class="col-form-label">Email Adress</label>
   </div>
   <div class="col-auto">
-    <input type="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
+    <input type="email" name='email' id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
   </div>
 </div>
 
@@ -32,7 +32,7 @@
     <label for="inputPassword6" class="col-form-label">Password</label>
   </div>
   <div class="col-auto">
-    <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+    <input type="password" name='password' id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
   </div>
   <div class="col-auto">
     <span id="passwordHelpInline" class="form-text">
@@ -45,7 +45,7 @@
 
 
     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+      <p style="color: red;" class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
 </div>
