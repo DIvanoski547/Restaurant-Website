@@ -11,9 +11,4 @@ const User = require("../models/User.model");
 
 /* DELETE USER */
 
-
-
-
-
-
   module.exports = router;
