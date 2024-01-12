@@ -27,7 +27,7 @@ const isAdmin = (req, res, next) => {
 };
 
 // checks if the user has admin or moderator rights
-const isAdminOrEditor = (req, res, next) => {
+const isAdminOrModerator = (req, res, next) => {
   if (req.user.role != "admin" && req.user.role != "moderator") {
     console.log("User needs admin or moderator rights to access this route.");
     return res.redirect('/login');
@@ -39,6 +39,6 @@ module.exports = {
     isLoggedIn,
     isLoggedOut,
     isAdmin,
-    isAdminOrEditor
+    isAdminOrModerator
 };
   
