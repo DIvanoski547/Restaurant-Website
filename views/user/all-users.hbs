@@ -1,0 +1,6 @@
+<h2>All Users</h2>
+<button><a href="/users/create">Add a new user</a></h4></button>
+
+{{#each allUsers}}
+<p><a href="/users/{{_id}}"><b>{{username}}</b>, {{email}}, {{role}}</a></p>
+{{/each}}
