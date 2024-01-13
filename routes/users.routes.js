@@ -65,7 +65,7 @@ router.post('/users/create', (req, res, next) => {
       });
 }); 
 
-/* GET ALL USERS */
+/*-----GET ALL USERS-----*/
 // route to display a list of all users found in the database
 router.get('/users', (req, res, next) => {
   User.find()
@@ -75,6 +75,19 @@ router.get('/users', (req, res, next) => {
       })
       .catch(error => {
           console.log('Error while displaying list of all users: ', error);
+          next(error);
+      });
+});
+
+/*-----GET ONE USER-----*/
+// route to display a specific user on the user-details page
+router.get('/users/:userId', (req, res, next) => {
+  const { userId } = req.params;
+
+  User.findById(userId)
+      .then(foundUser => res.render('user/user-details', { foundUser }))
+      .catch(error => {
+          console.log('Error while retrieving user details: ', error);
           next(error);
       });
 });
