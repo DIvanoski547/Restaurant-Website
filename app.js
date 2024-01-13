@@ -19,7 +19,6 @@ const app = express();
 require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
-const roleSetter = require('./utils/role-setter');
 const projectName = "Restaurant-website";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
