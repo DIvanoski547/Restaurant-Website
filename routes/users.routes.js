@@ -75,7 +75,7 @@ router.post('/users/create', (req, res, next) => {
 
 /*-----GET ALL USERS-----*/
 // route to display a list of all users found in the database
-router.get('/users', (req, res, next) => {
+router.get('/users', isAdmin, (req, res, next) => {
   User.find()
       .then((allUsers) => {
           res.render('user/all-users', { allUsers, userInSession: req.session.currentUser })
@@ -89,11 +89,11 @@ router.get('/users', (req, res, next) => {
 
 /*-----GET ONE USER-----*/
 // route to display a specific user on the user-details page
-router.get('/users/:userId', (req, res, next) => {
+router.get('/users/:userId', isAdmin, (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
-      .then(foundUser => res.render('user/user-details', { foundUser, userInSession: req.session.currentUser }, /*{ userInSession: req.session.currentUser }*/))
+      .then(foundUser => res.render('user/user-details', { foundUser, userInSession: req.session.currentUser }))
       .catch(error => {
           console.log('Error while retrieving user details: ', error);
           next(error);
