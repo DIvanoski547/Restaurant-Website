@@ -4,16 +4,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.bg-banner {
+.bg {
   background-image: url(../images/background1.jpg);
   background-position: cover;
   height: 100vh;
   background-repeat: no-repeat;
 }
 
-.navbar a {
+/* .navbar a {
   color: white;
-}
+} */
 
 a {
   color: #00b7ff;
