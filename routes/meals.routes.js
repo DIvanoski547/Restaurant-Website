@@ -5,7 +5,7 @@ const Meal = require("../models/Meal.model");
 
 /* -------- MENU PAGE --------*/
 router.get("/menu", (req, res, next) => {
-    res.render("meals/menu");
+    res.render("meals/menu", { userInSession: req.session.currentUser } );
   });
 
 router.get("/meal", (req, res, next) => {
