@@ -3,7 +3,17 @@ const router = express.Router();
 
 const User = require("../models/User.model");
 
-/* CREATE USER */
+// Require necessary middleware to control access to specific routes
+const { isAdmin, isAdminOrModerator } = require('../middleware/route-guard.js');
+
+
+/*-----GET CREATE USER-----*/
+router.get('/users/create', isAdmin, (req, res) => {
+  res.render('user/new-user', { userInSession: req.session.currentUser })
+});
+
+
+/*-----POST CREATE USER-----*/
 
 /* GET ALL USERS */
 
