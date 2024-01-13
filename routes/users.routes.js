@@ -70,7 +70,7 @@ router.post('/users/create', (req, res, next) => {
 router.get('/users', (req, res, next) => {
   User.find()
       .then((allUsers) => {
-          res.render('user/all-users', { allUsers })
+          res.render('user/all-users', { allUsers }, { userInSession: req.session.currentUser })
           console.log(`There are currently ${allUsers.length} users in the database.`);
       })
       .catch(error => {
@@ -85,7 +85,7 @@ router.get('/users/:userId', (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
-      .then(foundUser => res.render('user/user-details', { foundUser }))
+      .then(foundUser => res.render('user/user-details', { foundUser }, { userInSession: req.session.currentUser }))
       .catch(error => {
           console.log('Error while retrieving user details: ', error);
           next(error);
