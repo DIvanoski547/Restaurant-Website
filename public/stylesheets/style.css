@@ -7,7 +7,7 @@ body {
 .bg-banner {
   background-image: url(../images/background1.jpg);
   background-position: cover;
-  height: calc(100vh - 60px);
+  height: 100vh;
   background-repeat: no-repeat;
 }
 
