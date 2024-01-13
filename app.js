@@ -20,9 +20,7 @@ require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
 const projectName = "Restaurant-website";
-
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
-app.use(roleSetter);  
+app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`; 
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
