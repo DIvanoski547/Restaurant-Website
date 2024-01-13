@@ -12,7 +12,6 @@ router.get('/users/create', isAdmin, (req, res) => {
   res.render('user/new-user', { userInSession: req.session.currentUser })
 });
 
-
 /*-----POST CREATE USER-----*/
 
 /* GET ALL USERS */

@@ -1,0 +1,29 @@
+<ul>
+    <li>
+        <a href="/">Home</a>
+    </li>
+</ul>
+
+<h2>Create a new user</h2>
+<form action="/users/create" method="POST">
+    <label> Username:
+        <input type="text" name="username" placeholder="FoodLover">
+    </label>
+    <label> Email:
+        <input type="text" name="email" placeholder="food.lover@mail.com">
+    </label>
+    <label for="role"> Role: </label>
+    <select name="role" id="role">
+        <option>admin</option>
+        <option>moderator</option>
+        <option>customer</option>
+    </select>
+    
+    <button type="submit">Create new user</button>
+</form>
+
+<div>
+    {{#if errorMessage}}
+      <p style="color: red;" class="error">{{errorMessage}}</p>
+    {{/if}}
+</div>
