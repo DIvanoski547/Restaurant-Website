@@ -1,9 +1,3 @@
-<ul>
-    <li>
-        <a href="/">Home</a>
-    </li>
-</ul>
-
 <h2>Create a new user</h2>
 <form action="/users/create" method="POST">
     <label> Username:
@@ -11,6 +5,9 @@
     </label>
     <label> Email:
         <input type="text" name="email" placeholder="food.lover@mail.com">
+    </label>
+    <label> Password:
+        <input type="password" name="password" placeholder="************">
     </label>
     <label for="role"> Role: </label>
     <select name="role" id="role">
