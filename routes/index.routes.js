@@ -6,7 +6,7 @@ const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
 /*-----GET HOME PAGE-----*/
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index", { userInSession: req.session.currentUser });
 });
 
 module.exports = router;
