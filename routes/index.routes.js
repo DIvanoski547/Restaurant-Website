@@ -5,7 +5,7 @@ const router = express.Router();
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
 /*-----GET HOME PAGE-----*/
-router.get("/", isLoggedIn, (req, res, next) => {
+router.get("/", (req, res, next) => {
   res.render("index");
 });
 
