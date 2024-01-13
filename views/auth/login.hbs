@@ -1,13 +1,14 @@
 <div id="login-form" class="mb-3">
   <h2>Log In</h2>
-  <form action="/login" method="POST"></form>
+  <form action="/login" method="POST">
+
     {{!-- EMAIL FORM --}}
     <div class="row g-3 align-items-center">
       <div class="col-1">
         <label for="inputemail" class="col-form-label">Email Address</label>
       </div>
       <div class="col-auto">
-        <input type="email" name="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline">
+        <input type="email" name="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline" placeholder="dave@chappelle.com">
       </div>
     </div>
 
@@ -17,11 +18,11 @@
         <label for="inputPassword6" class="col-form-label">Password</label>
       </div>
       <div class="col-auto">
-        <input type="password" name="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+        <input type="password" name="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="********">
       </div>
       <div class="col-auto">
         <span id="passwordHelpInline" class="form-text">
-          Must be 8-20 characters long.
+          Must be at least 8 characters long.
         </span>
       </div>
     </div>
@@ -36,7 +37,7 @@
 
 {{!-- LOGIN BUTTON ABOVE DOES NOT WORK --}}
 
-<h1>Login Page</h1>
+{{!-- <h1>Login Page</h1>
 
 <div id="login-form">
   <h2>Login</h2>
@@ -57,4 +58,4 @@
       <p class="error" style="color:red;">{{errorMessage}}</p>
     {{/if}}
   </form>
-</div>
+</div> --}}
