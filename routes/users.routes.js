@@ -100,8 +100,19 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
       });
 });
 
-/* EDIT USER */
+/*-----POST DELETE USER-----*/
+// route to remove a specific user from the database
+router.post('/users/:userId/delete', (req, res, next) => {
+  const { userId } = req.params;
 
-/* DELETE USER */
+  User.findByIdAndRemove(userId)
+      .then(() => res.redirect('/users'))
+      .catch(error => {
+          console.log('Error while removing user: ', error);
+          next(error);
+      });
+});
+
+/*-----GET EDIT ANY USER-----*/
 
   module.exports = router;
