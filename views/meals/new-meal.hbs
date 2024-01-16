@@ -1,0 +1,52 @@
+<h2>Create a new user</h2>
+<form action="/meals/create" method="POST">
+    <label> Name:
+        <input type="text" name="name" placeholder="Pizza">
+    </label>
+    <label> Ingredients:
+        <textarea type="text" name="ingredients" placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."></textarea>
+    </label>
+    <label> Allergens:
+        <textarea type="text" name="allergens" placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."></textarea>
+    </label>
+    <label for="spiceLevel"> Spice Level: </label>
+    <select name="spiceLevel" id="spiceLevel">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <label> Image:
+        <input type="text" name="mealImage" placeholder="Pizza">
+    </label>
+    <label for="category"> Category: </label>
+    <select name="category" id="category">
+        <option>salad</option>
+        <option>soup</option>
+        <option>appetizer</option>
+        <option>main dish</option>
+        <option>side</option>
+        <option>dessert</option>
+    </select>
+    <label> Quisine:
+        <input type="text" name="quisine" placeholder="Caribbean">
+    </label>
+    <label for="dishType"> Dish Type: </label>
+    <select name="dishType" id="dishType">
+        <option>breakfast</option>
+        <option>lunch</option>
+        <option>dinner</option>
+        <option>dessert</option>
+        <option>snack</option>
+    </select>
+    
+    <button type="submit">Create new meal</button>
+</form>
+
+<div>
+    {{#if errorMessage}}
+      <p style="color: red;" class="error">{{errorMessage}}</p>
+    {{/if}}
+</div>
