@@ -24,3 +24,9 @@
     </select>
     <button type="submit">Save changes</button>
 </form>
+
+<div>
+    {{#if errorMessage}}
+      <p style="color: red;" class="error">{{errorMessage}}</p>
+    {{/if}}
+</div>

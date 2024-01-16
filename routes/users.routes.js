@@ -23,7 +23,7 @@ router.get('/users/create', isAdmin, (req, res) => {
 
 /*-----POST CREATE USER-----*/
 // route to create a user using data submitted via form
-router.post('/users/create', (req, res, next) => {
+router.post('/users/create', isAdmin, (req, res, next) => {
   console.log('New user added via online form:', req.body);
   const { username, email, password, role } = req.body;
 
@@ -130,7 +130,7 @@ router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
 /*-----POST UPDATE ANY USER-----*/
 // route to submit the form to update the user in the database
 // save the updated user to the database
-router.post('/users/:userId/edit', (req, res, next) => {
+router.post('/users/:userId/edit', isAdmin, (req, res, next) => {
   const { userId } = req.params;
   const { username, email, password, role } = req.body;
 
