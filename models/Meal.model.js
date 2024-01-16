@@ -16,7 +16,7 @@ const mealSchema = new Schema(
     },
     spiceLevel: {
       type: String,
-      enum:['1', '2', '3', '4', '5']
+      enum:['0', '1', '2', '3', '4', '5']
     },
     mealImage: {
       type: String,
@@ -24,7 +24,7 @@ const mealSchema = new Schema(
     },
     category: {
       type: String,
-      enum:['vegan', 'vegetarian'],
+      enum:['salad', 'soup', 'appetizer', 'dessert', 'main dish', 'side'],
       required: false
     },
     quisine: {
