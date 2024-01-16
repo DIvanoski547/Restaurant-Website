@@ -1,6 +1,7 @@
 <h2>All Users</h2>
 <button><a href="/users/create">Add a new user</a></h4></button>
-
+<br>
+<br>
 {{#each allUsers}}
-<p>Username: <a href="/users/{{_id}}"><b>{{username}}</b></a> | Email: {{email}} | Role: {{role}} | <a href="/users/{{_id}}/edit">edit user</a> </p>
+<p>Username: <a href="/users/{{_id}}"><b>{{username}}</b></a> | Email: {{email}} | Role: {{role}} | <button><a href="/users/{{_id}}/edit">edit</a></button></p>
 {{/each}}
