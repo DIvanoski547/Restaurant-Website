@@ -7,11 +7,11 @@ const mealSchema = new Schema(
         required: true
     },
     ingredients: {
-      type: [ String ],
+      type: String,
       required: true
     },
     allergens: {
-      type: [ String ],
+      type: String,
       required: true
     },
     spiceLevel: {
