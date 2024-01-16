@@ -1,0 +1,7 @@
+<h2>All Meals</h2>
+<button><a href="/meals/create">Add a new meal</a></h4></button>
+<br>
+<br>
+{{#each allMeals}}
+<p>Name: <a href="/meals/{{_id}}"><b>{{name}}</b></a> | <button><a href="/meals/{{_id}}">view</a></button> | <button><a href="/meals/{{_id}}/edit">edit</a></button></p>
+{{/each}}

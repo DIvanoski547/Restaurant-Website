@@ -1,0 +1,20 @@
+<ul>
+    <li>
+        <a href="/meals">All meals</a>
+    </li>
+</ul>
+<h2>{{foundMeal.name}}</h2>
+<p><b>Ingredients:</b> {{foundMeal.ingredients}}</p>
+<p><b>Allergens:</b> {{foundMeal.allergens}}</p>
+<p><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p>
+<p><b>Meal Image:</b> {{foundMeal.mealImage}}</p>
+<p><b>Category:</b> {{foundMeal.category}}</p>
+<p><b>Quisine:</b> {{foundMeal.quisine}}</p>
+<p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+
+<button><a href="/meals/{{foundMeal._id}}/edit">Edit meal</a></button>
+<br>
+<br>
+<form action="/meals/{{foundMeal._id}}/delete" method="POST">
+    <button type="submit">Delete meal</button>
+</form>
