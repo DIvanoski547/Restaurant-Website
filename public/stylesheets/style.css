@@ -12,10 +12,9 @@ body {
   height: 100vh;
 }
 
-
-/* .navbar a {
-  color: white;
-} */
+.burly a {
+  color: burlywood;
+}
 
 a {
   color: #00b7ff;
