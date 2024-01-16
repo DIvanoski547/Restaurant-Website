@@ -1,0 +1,23 @@
+<ul>
+    <li>
+        <a href="/users/{{foundUser._id}}">Back</a>
+    </li>
+</ul>
+<h2>Edit user: {{foundUser.name}}</h2>
+
+<form action="/users/{{foundUser._id}}/edit" method="POST">
+    <label> Username:
+        <input type="text" name="username" value="{{foundUser.name}}">
+    </label>
+    <label> Email:
+        <input type="text" name="email" value="{{foundUser.email}}">
+    </label>
+    <label for="role"> Role: </label>
+    <select name="role" id="role">
+        <option value="{{_id}}">{{foundUser.role}}</option>
+        <option>admin</option>
+        <option>moderator</option>
+        <option>customer</option>
+    </select>
+    <button type="submit">Save changes</button>
+</form>
