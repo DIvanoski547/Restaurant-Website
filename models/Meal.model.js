@@ -15,9 +15,8 @@ const mealSchema = new Schema(
       required: true
     },
     spiceLevel: {
-      type: Number,
-      min: 1,
-      max: 5
+      type: String,
+      enum:[1, 2, 3, 4, 5]
     },
     mealImage: {
       type: String,
