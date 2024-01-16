@@ -114,5 +114,35 @@ router.post('/users/:userId/delete', (req, res, next) => {
 });
 
 /*-----GET EDIT ANY USER-----*/
+// route to find the user we would like to edit in the database
+// show a pre-filled form to update a user's info
+router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
+  const { userId } = req.params;
+
+  User.findById(userId)
+      .then((foundUser) => res.render('user/edit-user', { foundUser }))
+      .catch(error => {
+          console.log('Error while updating user: ', error);
+          next(error);
+      });
+});
+
+/*-----POST UPDATE ANY USER-----*/
+// route to submit the form to update the user in the database
+// save the updated user to the database
+router.post('/users/:userId/edit', (req, res, next) => {
+  const { userId } = req.params;
+  const { username, email, password, role } = req.body;
+
+  User.findByIdAndUpdate(userId, { username, email, password, role })
+      .then((foundUser) => {
+          console.log(foundUser);
+          res.redirect(`/users/${foundUser._id}`)
+      })
+      .catch(error => {
+          console.log('Error while updating user: ', error);
+          next(error);
+      });
+});
 
   module.exports = router;
