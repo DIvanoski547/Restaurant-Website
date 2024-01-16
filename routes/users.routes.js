@@ -101,11 +101,11 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
 });
 
 /*-----POST DELETE USER-----*/
-// route to remove a specific user from the database
-router.post('/users/:userId/delete', (req, res, next) => {
+// route to delete a specific user from the database
+router.post('/users/:userId/delete', isAdmin, (req, res, next) => {
   const { userId } = req.params;
 
-  User.findByIdAndRemove(userId)
+  User.findByIdAndDelete(userId)
       .then(() => res.redirect('/users'))
       .catch(error => {
           console.log('Error while removing user: ', error);
