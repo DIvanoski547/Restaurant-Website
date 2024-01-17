@@ -27,7 +27,7 @@ const mealSchema = new Schema(
       enum:['salad', 'soup', 'appetizer', 'dessert', 'main dish', 'side'],
       required: false
     },
-    quisine: {
+    cuisine: {
       type: String,
       required: false
     },

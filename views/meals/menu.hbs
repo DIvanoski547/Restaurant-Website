@@ -1,6 +1,25 @@
 <h2>MENU</h2>
 
-<h3>Breakfast</h3>
+
+{{#each allMeals}}
+    <h2>{{name}}</h2>
+    {{!-- <p>This meal has {{propellers}} propellers and a maximum speed of {{maxSpeed}}km/h</p>
+    <a href="/drones/{{_id}}/edit">Edit</a>
+    <form action="/drones/{{_id}}/delete" method="post">
+        <button type="submit">Delete</button>
+    </form> --}}
+{{/each}}
+
+
+
+
+
+
+
+
+
+
+{{!-- <h3>Breakfast</h3>
 
 <h3>Lunch</h3>
 <div class="row row-cols-2 row-cols-md-4 g-4">
@@ -49,4 +68,4 @@
 </div>
 
 <h3>Dinner</h3>
-<h3>Dessert</h3>
+<h3>Dessert</h3> --}}
