@@ -13,10 +13,10 @@ router.get("/menu", (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
           res.render('meals/menu', { allMeals, userInSession: req.session.currentUser })
-          console.log(`There are currently ${allMeals.length} users in the database.`);
+          console.log(`There are currently ${allMeals.length} meals in the database.`);
       })
       .catch(error => {
-          console.log('Error while displaying list of all users: ', error);
+          console.log('Error while displaying list of all meals: ', error);
           next(error);
       });
   });
@@ -75,10 +75,10 @@ router.get('/meals', isAdmin, (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
           res.render('meals/all-meals', { allMeals, userInSession: req.session.currentUser })
-          console.log(`There are currently ${allMeals.length} users in the database.`);
+          console.log(`There are currently ${allMeals.length} meals in the database.`);
       })
       .catch(error => {
-          console.log('Error while displaying list of all users: ', error);
+          console.log('Error while displaying list of all meals: ', error);
           next(error);
       });
 });
