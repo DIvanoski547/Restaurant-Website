@@ -8,8 +8,10 @@ const mongoose = require("mongoose");
 // How many rounds should bcrypt run the salt (default - 10 rounds)
 const saltRounds = 10;
 
-// Require the User model in order to interact with the database
+// Require the User, Meal and Comment models in order to interact with the database
 const User = require("../models/User.model");
+const Meal = require("../models/Meal.model");
+const Comment = require("../models/Comment.model");
 
 // Require necessary middleware to control access to specific routes
 const { isAdmin, isAdminOrModerator } = require('../middleware/route-guard.js');
