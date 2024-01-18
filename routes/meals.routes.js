@@ -8,7 +8,7 @@ const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../mid
 const Meal = require("../models/Meal.model");
 
 /*-----GET MENU PAGE-----*/
-// route to get menu page and display a list of all meals found in the database
+// public route to get menu page and display a list of all meals found in the database
 router.get("/menu", (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
@@ -22,18 +22,26 @@ router.get("/menu", (req, res, next) => {
   });
 
 /*-----GET SINGLE MEAL-----*/
-router.get("/meal", (req, res, next) => {
-    res.render("meals/meal", { userInSession: req.session.currentUser })
+// public route to display a specific meal on the menu/meal page
+router.get("/menu/meal/:mealId", (req, res, next) => {
+  const { mealId } = req.params;
+
+  Meal.findById(mealId)
+      .then(foundMeal => res.render('meals/meal', { foundMeal, userInSession: req.session.currentUser }))
+      .catch(error => {
+          console.log('Error while retrieving meal details: ', error);
+          next(error);
+      });
 });
 
 /*-----GET CREATE MEAL-----*/
-// display the form which allows new meals to be created
+// backend display the form which allows new meals to be created
 router.get('/meals/create', isAdmin, (req, res) => {
   res.render('meals/new-meal', { userInSession: req.session.currentUser })
 });
 
 /*-----POST CREATE MEAL-----*/
-// route to create a new meal using data submitted via form
+// backend route to create a new meal using data submitted via form
 router.post('/meals/create', isAdmin, (req, res, next) => {
   console.log('New meal added via online form:', req.body);
   const { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType } = req.body;
@@ -70,7 +78,7 @@ router.post('/meals/create', isAdmin, (req, res, next) => {
 });
 
 /*-----GET ALL MEALS-----*/
-// route to display a list of all meals found in the database
+// backend route to display a list of all meals found in the database
 router.get('/meals', isAdmin, (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
@@ -84,7 +92,7 @@ router.get('/meals', isAdmin, (req, res, next) => {
 });
 
 /*-----GET SINGLE MEAL-----*/
-// route to display a specific meal on the meal-details page
+// backend route to display a specific meal on the meal-details page
 router.get('/meals/:mealId', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
 
@@ -97,7 +105,7 @@ router.get('/meals/:mealId', isAdmin, (req, res, next) => {
 });
 
 /*-----POST DELETE MEAL-----*/
-// route to delete a specific meal from the database
+// backend route to delete a specific meal from the database
 router.post('/meals/:mealId/delete', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
 
@@ -110,7 +118,7 @@ router.post('/meals/:mealId/delete', isAdmin, (req, res, next) => {
 });
 
 /*-----GET EDIT ANY MEAL-----*/
-// route to find the meal we would like to edit in the database
+// backend route to find the meal we would like to edit in the database
 // show a pre-filled form to update a meal's info
 router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
@@ -124,7 +132,7 @@ router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
 });
 
 /*-----POST UPDATE ANY MEAL-----*/
-// route to submit the form to update the meal in the database
+// backend route to submit the form to update the meal in the database
 // save the updated meal to the database
 router.post('/meals/:mealId/edit', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
