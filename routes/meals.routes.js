@@ -8,6 +8,7 @@ const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../mid
 const Meal = require("../models/Meal.model");
 
 /*-----GET MENU PAGE-----*/
+// route to get menu page and display a list of all meals found in the database
 router.get("/menu", (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
