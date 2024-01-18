@@ -35,6 +35,10 @@ app.use("/", mealsRoutes);
 // --------- Users route --------//
 const usersRoutes = require("./routes/users.routes");
 app.use("/", usersRoutes);
+// --------- Comment route --------//
+const commentsRoutes = require("./routes/comments.routes");
+app.use("/", commentsRoutes);
+
 
 
 
