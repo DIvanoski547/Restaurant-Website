@@ -1,0 +1,61 @@
+<ul>
+    <li>
+        <a href="/meals/{{foundMeal._id}}">Back</a>
+    </li>
+</ul>
+<h2>Edit meal: {{foundMeal.name}}</h2>
+
+<form action="/meals/{{foundMeal._id}}/edit" method="POST">
+    <label> Name:
+        <input type="text" name="name" value="{{foundMeal.name}}">
+    </label>
+    <label> Ingredients:
+        <input type="text" name="ingredients" value="{{foundMeal.ingredients}}">
+    </label>
+    <label> Allergens:
+        <input type="text" name="allergens" value="{{foundMeal.allergens}}">
+    </label>
+    <label for="spiceLevel"> Spice Level: </label>
+    <select name="spiceLevel" id="spiceLevel">
+        <option value="{{_id}}">{{foundMeal.spiceLevel}}</option>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <label> Image:
+        <input type="text" name="mealImage" value="{{foundMeal.mealImage}}">
+    </label>
+    <label for="category"> Category: </label>
+    <select name="category" id="category">
+        <option value="{{_id}}">{{foundMeal.category}}</option>
+        <option>salad</option>
+        <option>soup</option>
+        <option>appetizer</option>
+        <option>main dish</option>
+        <option>side</option>
+        <option>dessert</option>
+    </select>
+    <label> Cuisine:
+        <input type="text" name="cuisine" value="{{foundMeal.cuisine}}">
+    </label>
+    <label for="dishType"> Dish Type: </label>
+    <select name="dishType" id="dishType">
+        <option value="{{_id}}">{{foundMeal.dishType}}</option>
+        <option>breakfast</option>
+        <option>lunch</option>
+        <option>dinner</option>
+        <option>dessert</option>
+        <option>snack</option>
+    </select>
+    
+    <button type="submit">Save changes</button>
+</form>
+
+<div>
+    {{#if errorMessage}}
+      <p style="color: red;" class="error">{{errorMessage}}</p>
+    {{/if}}
+</div>
