@@ -27,7 +27,7 @@ router.get('/meals/create', isAdmin, (req, res) => {
 // route to create a new meal using data submitted via form
 router.post('/meals/create', isAdmin, (req, res, next) => {
   console.log('New meal added via online form:', req.body);
-  const { name, ingredients, allergens, spiceLevel, mealImage, category, quisine, dishType } = req.body;
+  const { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType } = req.body;
 
   // Check that a name, ingredients and allergens have been provided
   if (name === "" || ingredients === "" || allergens === "") {
@@ -42,7 +42,7 @@ router.post('/meals/create', isAdmin, (req, res, next) => {
   Meal.findOne({ name })
       .then((foundMeal) => {
         if (!foundMeal) {
-          Meal.create({ name, ingredients, allergens, spiceLevel, mealImage, category, quisine, dishType })
+          Meal.create({ name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType })
               .then(() => res.redirect("/meals"));
               console.log('New meal successfully added to database.')
       } 
@@ -119,9 +119,9 @@ router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
 // save the updated meal to the database
 router.post('/meals/:mealId/edit', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
-  const { name, ingredients, allergens, spiceLevel, mealImage, category, quisine, dishType } = req.body;
+  const { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType } = req.body;
 
-  Meal.findByIdAndUpdate(mealId, { name, ingredients, allergens, spiceLevel, mealImage, category, quisine, dishType })
+  Meal.findByIdAndUpdate(mealId, { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType })
       .then((foundMeal) => {
           console.log(foundMeal);
           res.redirect(`/users/${foundMeal._id}`)
