@@ -35,8 +35,8 @@ const mealSchema = new Schema(
       type: String,
       enum:['breakfast', 'lunch', 'dinner', 'dessert'],
       required: false
-    }
-    // comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
+    },
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
   },
   {
     timestamps: true,
