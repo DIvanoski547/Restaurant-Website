@@ -9,7 +9,15 @@ const Meal = require("../models/Meal.model");
 
 /*-----GET MENU PAGE-----*/
 router.get("/menu", (req, res, next) => {
-    res.render("meals/menu", { userInSession: req.session.currentUser } );
+  Meal.find()
+      .then((allMeals) => {
+          res.render('meals/menu', { allMeals, userInSession: req.session.currentUser })
+          console.log(`There are currently ${allMeals.length} users in the database.`);
+      })
+      .catch(error => {
+          console.log('Error while displaying list of all users: ', error);
+          next(error);
+      });
   });
 
 /*-----GET SINGLE MEAL-----*/
