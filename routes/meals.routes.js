@@ -4,8 +4,9 @@ const router = express.Router();
 // Require necessary middleware to control access to specific routes
 const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../middleware/route-guard.js');
 
-// Require the Meal model in order to interact with the database
+// Require the Meal and Comment models in order to interact with the database
 const Meal = require("../models/Meal.model");
+const Comment = require("../models/Comment.model");
 
 /*-----GET MENU PAGE-----*/
 // public route to get menu page and display a list of all meals found in the database
