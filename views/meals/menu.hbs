@@ -1,71 +1,30 @@
-<h2>MENU</h2>
-
-
-{{#each allMeals}}
-    <p><h3>{{name}}</h3> | <button><a href="/menu/meal/{{_id}}">view</a></button></p>
-    {{!-- <p>This meal has {{propellers}} propellers and a maximum speed of {{maxSpeed}}km/h</p>
-    <a href="/drones/{{_id}}/edit">Edit</a>
-    <form action="/drones/{{_id}}/delete" method="post">
-        <button type="submit">Delete</button>
-    </form> --}}
-{{/each}}
-
-
-
-
-
-
-
-
-
-
-{{!-- <h3>Breakfast</h3>
-
-<h3>Lunch</h3>
-<div class="row row-cols-2 row-cols-md-4 g-4">
-  <div class="col tr">
-    <div class="card h-100">
-      <img
-        src="/images/spaghettiTomato.jpg"
-        class="card-img-top"
-        alt="Spaghetti with tomato sauce"
-      />
-      <div class="card-body text-center">
-        <h5 class="card-title">Spaghetti with tomato sauce</h5>
-        <p class="card-text">Widely used in Italian-American cuisine, it is
-          known as alla marinara in Italy, where it is typically made with
-          tomatoes, basil, olive oil, garlic and oregano, but also sometimes
-          olives, capers, and salted anchovies. It is used for spaghetti and
-          vermicelli, but also with meat or fish. Marinara sauce.</p>
-      </div>
-      <div class="card-footer text-center">
-        <a href="#" class="btn btn-primary">View Meal</a>
-        <a href="#" class="btn btn-primary">Order Meal</a>
+<div class="container">
+  {{#each allMeals}}
+    <div class="row row-cols-1 row-cols-md-3 mb-3">
+      <div class="col">
+        <div class="card h-100">
+          <img src={{mealImage}} class="card-img-top" alt="meal-image" />
+          <div class="card-body">
+            <h5 class="card-title text-center">{{name}}</h5>
+            <p class="card-text">
+              <ul>
+                <li class="fw-bold">Ingredients: {{ingredients}}</li>
+                <li class="fw-bold">Allergens: {{allergens}}</li>
+                <li class="fw-bold">Spice level: {{spiceLevel}}</li>
+                <li class="fw-bold">Category: {{category}}</li>
+                <li class="fw-bold">Cuisine: {{cuisine}}</li>
+                <li class="fw-bold">Dish Type: {{dishType}}</li>
+              </ul>
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="button">
+                <a href="/meals/meal/{{_id}}">View</a></button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <img
-        src="/images/spaghettiBolognese.jpg"
-        class="card-img-top"
-        alt="Spaghetti Bolognese"
-      />
-      <div class="card-body text-center">
-        <h5 class="card-title">Spaghetti Bolognese</h5>
-        <p class="card-text">Bolognese sauce known in Italian as ragù alla
-          bolognese is a meat-based sauce in Italian cuisine, typical of the
-          city of Bologna. It is customarily used to dress tagliatelle al ragù
-          and to prepare lasagne alla bolognese.</p>
-      </div>
-      <div class="card-footer text-center">
-        <a href="#" class="btn btn-primary">View Meal</a>
-        <a href="#" class="btn btn-primary">Order Meal</a>
-      </div>
-    </div>
-  </div>
+  {{/each}}
 </div>
-
-<h3>Dinner</h3>
-<h3>Dessert</h3> --}}

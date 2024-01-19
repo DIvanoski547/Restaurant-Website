@@ -21,8 +21,27 @@ const meals = [
   category: "main dish",
   cuisine: "Mexican",
   dishType: "lunch",
+},
+{
+  name: "Pizza",
+  ingredients: "flour, ketchup, cheese",
+  allergens: "lactose, gluten",
+  spiceLevel: "0",
+  mealImage: "/images/pizza.jpg",
+  category: "main dish",
+  cuisine: "Italian",
+  dishType: "lunch"
+}, 
+{
+  name: "Soup",
+  ingredients: "flour, ketchup, cheese",
+  allergens: "lactose, gluten",
+  spiceLevel: "0",
+  mealImage: "/images/pizza.jpg",
+  category: "main dish",
+  cuisine: "Italian",
+  dishType: "lunch"
 }
-  
 ];
 
 const MONGO_URI =
