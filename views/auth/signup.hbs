@@ -1,10 +1,14 @@
 <div class="container">
-  <div id="signup-form" class="mb-3">
-    <h2>Sign Up</h2>
-    <form action="/signup" method="POST">
+  <div
+    id="signup-form"
+    class="position-absolute top-50 start-50 translate-middle card p-10 bg-light"
+  >
 
-      <div class="row g-3 align-items-center">
-        <div class="col-1">
+    <form action="/signup" method="POST">
+      <h3 class="text-center">Sign Up</h3>
+      {{! USERNAME FORM }}
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-3">
           <label for="inputusername" class="col-form-label">Username:</label>
         </div>
         <div class="col-auto">
@@ -14,6 +18,7 @@
             id="inputusername"
             class="form-control"
             aria-describedby="passwordHelpInline"
+            placeholder="davechapelle"
           />
         </div>
         <div class="col-auto">
@@ -24,8 +29,8 @@
       </div>
 
       {{! EMAIL FORM }}
-      <div class="row g-3 align-items-center">
-        <div class="col-1">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-3">
           <label for="inputemail" class="col-form-label">Email Adress</label>
         </div>
         <div class="col-auto">
@@ -35,13 +40,14 @@
             id="inputemail"
             class="form-control"
             aria-describedby="passwordHelpInline"
+            placeholder="dave@chapelle.com"
           />
         </div>
       </div>
 
       {{! PASSWORD FORM  }}
-      <div class="row g-3 align-items-center">
-        <div class="col-1">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-3">
           <label for="inputPassword6" class="col-form-label">Password</label>
         </div>
         <div class="col-auto">
@@ -51,6 +57,7 @@
             id="inputPassword6"
             class="form-control"
             aria-describedby="passwordHelpInline"
+            placeholder="*********"
           />
         </div>
         <div class="col-auto">
@@ -59,9 +66,10 @@
           </span>
         </div>
       </div>
-
-      <button class="btn btn-secondary" type="submit">
-        Sign Up</button>
+      <div class="text-center">
+        <button class="btn btn-secondary" type="submit">
+          Sign Up</button>
+      </div>
 
       {{#if errorMessage}}
         <p style="color: red;" class="error">{{errorMessage}}</p>

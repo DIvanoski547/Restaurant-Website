@@ -32,15 +32,25 @@ const meals = [
   cuisine: "Italian",
   dishType: "lunch"
 }, 
+// {
+//   name: "Soup",
+//   ingredients: "flour, ketchup, cheese",
+//   allergens: "lactose, gluten",
+//   spiceLevel: "0",
+//   mealImage: "/images/pizza.jpg",
+//   category: "main dish",
+//   cuisine: "Italian",
+//   dishType: "lunch"
+// },
 {
-  name: "Soup",
-  ingredients: "flour, ketchup, cheese",
+  name: "Tiramisu",
+  ingredients: "Ladyfingers, Mascarpone, Coffee, Heavy Whipped cream, Granulated Sugar, Vanilla Extract, Cocoa powder",
   allergens: "lactose, gluten",
   spiceLevel: "0",
-  mealImage: "/images/pizza.jpg",
-  category: "main dish",
+  mealImage: "/images/tiramisu.jpg",
+  category: "dessert",
   cuisine: "Italian",
-  dishType: "lunch"
+  dishType: "dessert"
 }
 ];
 

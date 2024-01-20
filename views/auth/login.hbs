@@ -1,12 +1,14 @@
 <div class="container">
-  <div id="login-form" class="mb-3 burly">
-    <h2>Sign in</h2>
-    <form action="/login" method="POST">
-
+  <div
+    id="login-form"
+    class="position-absolute top-50 start-50 translate-middle card p-5 bg-light"
+  >
+    <form action="/login" method="POST" class="mb-0">
+      <h3 class="text-center">Sign in</h3>
       {{! EMAIL FORM }}
-      <div class="row g-3 align-items-center burly">
-        <div class="col-1">
-          <label for="inputemail" class="col-form-label">Email Address</label>
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-3">
+          <label for="inputemail" class="">Email </label>
         </div>
         <div class="col-auto">
           <input
@@ -21,8 +23,8 @@
       </div>
 
       {{! PASSWORD FORM  }}
-      <div class="row g-3 align-items-center">
-        <div class="col-1">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-3">
           <label for="inputPassword6" class="col-form-label">Password</label>
         </div>
         <div class="col-auto">
@@ -35,16 +37,17 @@
             placeholder="********"
           />
         </div>
-        <div class="col-auto">
-        </div>
+
       </div>
 
-      <button class="btn btn-secondary" type="submit">
-        Sign In</button>
+      <div class="text-center">
+        <button class="btn btn-secondary btn-block" type="submit">Sign In</button>
+      </div>
 
       {{#if errorMessage}}
         <p style="color: red;" class="error">{{errorMessage}}</p>
       {{/if}}
     </form>
   </div>
+
 </div>

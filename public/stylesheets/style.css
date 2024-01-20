@@ -12,6 +12,9 @@ body {
   height: 100vh;
 } */
 
+.p-10 {
+  padding: 50px;
+}
 
 .btn-favorite.btn-primary {
   background-color: #f8d7da;
