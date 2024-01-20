@@ -24,8 +24,7 @@ const userSchema = new Schema(
         enum:['admin', 'moderator', 'customer'],
         default: 'customer'
     },
-    favorites: [{ type: Schema.Types.ObjectId, ref: "Meal" }],
-    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
+    favorites: [{ type: Schema.Types.ObjectId, ref: "Meal" }]
   },
   {
     timestamps: true,
