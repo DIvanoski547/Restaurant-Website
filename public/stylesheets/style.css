@@ -23,3 +23,8 @@ a {
 h1 {
   color: 15px;
 }
+
+.img-wrapper{
+  width: 600px;
+  height: 300px;
+}
