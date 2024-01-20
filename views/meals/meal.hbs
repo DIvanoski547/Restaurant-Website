@@ -26,8 +26,7 @@
 {{/if}}
 </div>
 
-{{newComment}}
 
-{{!-- {{#each foundMeal.comments}}
-  <p>{{content}}</p>
-{{/each}} --}}
+{{#each foundMeal.comments}}
+  <p><b>{{author.username}}</b>: {{content}}</p>
+{{/each}}

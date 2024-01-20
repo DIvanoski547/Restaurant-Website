@@ -29,7 +29,17 @@ router.get("/menu/meal/:mealId", (req, res, next) => {
   const { mealId } = req.params;
 
   Meal.findById(mealId)
-      .then(foundMeal => res.render('meals/meal', { foundMeal, userInSession: req.session.currentUser }))
+    .populate({
+      path: "comments",
+      populate: {
+        path: "author",
+          select: "username"
+      }})
+      .then(foundMeal => {
+        console.log('foundMeal', foundMeal);
+        console.log('found author', foundMeal.comments)
+        res.render('meals/meal', { foundMeal, userInSession: req.session.currentUser })
+      })
       .catch(error => {
           console.log('Error while retrieving meal details: ', error);
           next(error);
@@ -46,9 +56,10 @@ router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
 
   Comment.create({ dish, author, content })
   .then((newComment) => {
-    console.log ('The following is the new comment to be posted: ', newComment);
+    console.log ('The following is the new comment to be posted: ', newComment)
+    Meal.findByIdAndUpdate(dish, { $push: { comments: newComment._id } })
+    .then(() => res.redirect(`/menu/meal/${mealId}`))
   })
-  .then(() => res.redirect(`/menu/meal/${mealId}`))
   .catch(error => {
       console.log('Error while creating comment: ', error);
       next(error);

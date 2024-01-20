@@ -10,6 +10,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const Comment = require("../models/Comment.model");
 
 // Require necessary middleware to control access to specific routes
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
@@ -137,8 +138,29 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
 });
 
 /*-----GET PROFILE PAGE-----*/
-  router.get("/profile", isLoggedIn, (req, res, next) => {
-    res.render("user/profile", { userInSession: req.session.currentUser });
+  router.get("/profile/:userId", isLoggedIn, (req, res, next) => {
+    const { userId } = req.params;
+    console.log('req.params', req.params)
+    let isOwnProfile;
+
+    User.findById(userId)
+      .then((foundUser) => {
+        console.log ("Current logged in user is: ", foundUser);
+        Comment.find({ author: userId })
+        .populate("dish")
+        .then((foundComments) => {
+          console.log('foundComments', foundComments);
+          res.render("user/profile", { foundComments, userInSession: req.session.currentUser })
+          // if (foundUser._id === req.session.currentUser) {
+          //   res.render("user/profile", { foundComments, userInSession: req.session.currentUser });
+          // }
+        })
+      })
+      .catch(error => {
+          console.log('Error while retrieving user details: ', error);
+          next(error);
+      });
+
 });
 
 module.exports = router;

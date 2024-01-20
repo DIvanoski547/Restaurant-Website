@@ -6,10 +6,14 @@
   <h6>Email: {{ userInSession.email }}</h6>
   <h6>Role: {{ userInSession.role }}</h6>
   <br>
-  
-  {{!-- <button>
-    <a href="/users/{{userInSession._id}}/edit">edit profile</a>
-  </button> --}}
 {{else}}
   <p>Still no logged in user, sorry!</p>
 {{/if}}
+
+{{!-- {{#if isOwnProfile}}
+<button><a href="/users/{{userInSession._id}}/edit">edit profile</a></button>
+{{/if}} --}}
+
+{{#each foundComments}}
+  <p><b>{{dish.name}}</b>: {{content}}</p>
+{{/each}}
