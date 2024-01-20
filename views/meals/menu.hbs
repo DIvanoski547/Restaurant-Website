@@ -1,6 +1,6 @@
 <div class="container">
-  {{#each allMeals}}
-    <div class="row row-cols-1 row-cols-md-3 mb-3">
+  <div class="row row-cols-1 row-cols-md-3 mb-3">
+    {{#each allMeals}}
       <div class="col">
         <div class="card h-100">
           <img src={{mealImage}} class="card-img-top" alt="meal-image" />
@@ -8,9 +8,11 @@
             <h5 class="card-title text-center">{{name}}</h5>
             <p class="card-text">
               <ul>
-                <li><span class="fw-bold">Ingredients: </span>{{ingredients}}</li>
+                <li><span class="fw-bold">Ingredients:
+                  </span>{{ingredients}}</li>
                 <li><span class="fw-bold">Allergens: </span>{{allergens}}</li>
-                <li><span class="fw-bold">Spice level: </span> {{spiceLevel}}</li>
+                <li><span class="fw-bold">Spice level: </span>
+                  {{spiceLevel}}</li>
                 <li><span class="fw-bold">Category: </span>{{category}}</li>
                 <li><span class="fw-bold">Cuisine: </span>{{cuisine}}</li>
                 <li><span class="fw-bold">Dish Type: </span>{{dishType}}</li>
@@ -19,13 +21,19 @@
           </div>
           <div class="card-footer">
             <div class="d-grid gap-2 col-6 mx-auto">
-              <button class="btn btn-secondary " type="button">
-                <a href="/menu/meal/{{_id}}" class="text-light u-0">View</a></button>
-                 <button class="btn btn-outline-primary btn-favorite" onclick="toggleFavorite(this)">Add to favorites</button>
+              <button class="btn btn-secondary" type="button">
+                <a
+                  href="/menu/meal/{{_id}}"
+                  class="text-light u-0"
+                >View</a></button>
+              <button
+                class="btn btn-outline-primary btn-favorite"
+                onclick="toggleFavorite(this)"
+              >Add to favorites</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
