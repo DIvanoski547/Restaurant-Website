@@ -12,19 +12,11 @@
 <p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
 <p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
 
-<h2>Leave comment</h2>
+<h5>Leave a comment:</h5>
 
-<form action="/menu/meal/{{foundMeal._id}}" method="POST">
+<form action="/menu/meal/{{foundMeal._id}}/create-comment" method="POST">
   <label> Title:
     <input type="text" name="title" />
-  </label>
-  <br>
-  <br>
-  <label> Created by:
-    <input type="text" name="author" readonly/>
-  </label>
-  <label> Dish:
-    <input type="text" name="dish" readonly/>
   </label>
   <br>
   <br>
@@ -34,3 +26,7 @@
 
   <button type="submit"> Submit comment </button>
 </form>
+<br>
+<h5>Comments:</h5>
+<br>
+<p>{{foundMeal.comments}}</p>
