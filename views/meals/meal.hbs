@@ -13,6 +13,7 @@
 <p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
 <p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
 
+{{#if userInSession.username}}
 <h2>Leave a comment</h2>
 
 <form action="/menu/meal/{{foundMeal._id}}/create-comment" method="POST">
@@ -22,6 +23,7 @@
 
   <button type="submit"> Submit comment </button>
 </form>
+{{/if}}
 </div>
 
 {{newComment}}
