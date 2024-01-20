@@ -44,7 +44,7 @@
             <div class="navbar-nav text-warning">
               {{#if userInSession.username}}
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" href="/profile/{{userInSession._id}}">Profile</a>
                 <a class="nav-link" href="/menu">Menu</a>
                 <a class="nav-link" href="/about">About</a>
                 <form id="logout-form" action="/logout" method="POST">
