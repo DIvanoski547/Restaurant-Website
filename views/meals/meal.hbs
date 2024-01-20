@@ -11,3 +11,26 @@
 <p><b>Category:</b> {{foundMeal.category}}</p>
 <p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
 <p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+
+<h2>Leave comment</h2>
+
+<form action="/menu/meal/{{foundMeal._id}}" method="POST">
+  <label> Title:
+    <input type="text" name="title" />
+  </label>
+  <br>
+  <br>
+  <label> Created by:
+    <input type="text" name="author" readonly/>
+  </label>
+  <label> Dish:
+    <input type="text" name="dish" readonly/>
+  </label>
+  <br>
+  <br>
+  <label> Content:
+    <textarea type="text" name="content"> </textarea>
+  </label>
+
+  <button type="submit"> Submit comment </button>
+</form>
