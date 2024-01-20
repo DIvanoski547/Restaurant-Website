@@ -7,6 +7,7 @@ const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../mid
 // Require the Meal and Comment models in order to interact with the database
 const Meal = require("../models/Meal.model");
 const Comment = require("../models/Comment.model");
+const User = require("../models/User.model");
 
 /*-----GET MENU PAGE-----*/
 // public route to get menu page and display a list of all meals found in the database
@@ -34,6 +35,25 @@ router.get("/menu/meal/:mealId", (req, res, next) => {
           next(error);
       });
 });
+
+/*-----POST COMMENT ON MEAL-----*/ 
+// route to post comment on a specific meal on the menu/meal page
+router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
+  const { content } = req.body;
+  const { mealId } = req.params;
+  let dish = mealId;
+  let author = req.session.currentUser;
+
+  Comment.create({ dish, author, content })
+  .then((newComment) => {
+    console.log ('The following is the new comment to be posted: ', newComment);
+  })
+  .then(() => res.redirect(`/menu/meal/${mealId}`))
+  .catch(error => {
+      console.log('Error while creating comment: ', error);
+      next(error);
+  });
+})
 
 /*-----GET CREATE MEAL-----*/
 // backend display the form which allows new meals to be created
