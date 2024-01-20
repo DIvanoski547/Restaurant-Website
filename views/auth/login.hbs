@@ -1,36 +1,50 @@
-<div id="login-form" class="mb-3 burly">
-  <h2>Log In</h2>
-  <form action="/login" method="POST">
+<div class="container">
+  <div id="login-form" class="mb-3 burly">
+    <h2>Sign in</h2>
+    <form action="/login" method="POST">
 
-    {{!-- EMAIL FORM --}}
-    <div class="row g-3 align-items-center burly">
-      <div class="col-1">
-        <label for="inputemail" class="col-form-label">Email Address</label>
+      {{! EMAIL FORM }}
+      <div class="row g-3 align-items-center burly">
+        <div class="col-1">
+          <label for="inputemail" class="col-form-label">Email Address</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="email"
+            name="email"
+            id="inputemail"
+            class="form-control"
+            aria-describedby="passwordHelpInline"
+            placeholder="dave@chappelle.com"
+          />
+        </div>
       </div>
-      <div class="col-auto">
-        <input type="email" name="email" id="inputemail" class="form-control" aria-describedby="passwordHelpInline" placeholder="dave@chappelle.com">
-      </div>
-    </div>
 
-    {{!-- PASSWORD FORM  --}}
-    <div class="row g-3 align-items-center">
-      <div class="col-1">
-        <label for="inputPassword6" class="col-form-label">Password</label>
+      {{! PASSWORD FORM  }}
+      <div class="row g-3 align-items-center">
+        <div class="col-1">
+          <label for="inputPassword6" class="col-form-label">Password</label>
+        </div>
+        <div class="col-auto">
+          <input
+            type="password"
+            name="password"
+            id="inputPassword6"
+            class="form-control"
+            aria-describedby="passwordHelpInline"
+            placeholder="********"
+          />
+        </div>
+        <div class="col-auto">
+        </div>
       </div>
-      <div class="col-auto">
-        <input type="password" name="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="********">
-      </div>
-      <div class="col-auto">
-        <span id="passwordHelpInline" class="form-text">
-          Must be at least 8 characters long.
-        </span>
-      </div>
-    </div>
 
-    <button type="submit">Log in</button>
+      <button class="btn btn-secondary" type="submit">
+        Sign In</button>
 
-    {{#if errorMessage}}
-      <p style="color: red;" class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+      {{#if errorMessage}}
+        <p style="color: red;" class="error">{{errorMessage}}</p>
+      {{/if}}
+    </form>
+  </div>
 </div>
