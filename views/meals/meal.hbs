@@ -13,17 +13,19 @@
 <p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
 <p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
 
-<h5>Leave a comment:</h5>
+<h2>Leave a comment</h2>
 
 <form action="/menu/meal/{{foundMeal._id}}/create-comment" method="POST">
-  <label> Title:
-    <input type="text" name="title" />
-  </label>
-  <br>
-  <br>
   <label> Content:
     <textarea type="text" name="content"> </textarea>
   </label>
 
   <button type="submit"> Submit comment </button>
 </form>
+</div>
+
+{{newComment}}
+
+{{!-- {{#each foundMeal.comments}}
+  <p>{{content}}</p>
+{{/each}} --}}
