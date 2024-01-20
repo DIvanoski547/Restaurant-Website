@@ -12,6 +12,12 @@ body {
   height: 100vh;
 } */
 
+
+.btn-favorite.btn-primary {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
 .navbar-nav a {
   color: burlywood;
 }
@@ -23,8 +29,18 @@ a {
 h1 {
   color: 15px;
 }
+.u-0{
+  text-decoration: none;
 
-.img-wrapper{
-  width: 600px;
-  height: 300px;
+}
+
+
+.hr-width{
+  position: relative;
+  margin: 15px 0px;
+  border: none;
+  height: 5px;
+  border-radius: 5px;
+  background: black;
+
 }
