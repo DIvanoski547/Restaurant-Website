@@ -1,38 +1,88 @@
 <div class="container">
-  <ul>
-    <li>
-        <a href="/menu">Full menu</a>
-    </li>
-</ul>
-<h2>{{foundMeal.name}}</h2>
-<p><b>Ingredients:</b> {{foundMeal.ingredients}}</p>
-<p><b>Allergens:</b> {{foundMeal.allergens}}</p>
-<p><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p>
-<p><b>Meal Image:</b> <br> <img class="img-wrapper" src="{{foundMeal.mealImage}}"></p>
-<p><b>Category:</b> {{foundMeal.category}}</p>
-<p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
-<p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+  <button class="btn btn-secondary">
+    <a href="/menu" class="text-light u-0"> Back to menu</a>
+  </button>
 
-<h2>Leave comment</h2>
+  <div class="card mb-3">
+    <img src="{{foundMeal.mealImage}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title text-center">{{foundMeal.name}}</h5>
+      <p class="card-text"> <b>Ingredients</b>: {{foundMeal.ingredients}}</p>
+      <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
+      <p class="card-text"><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p> 
+      <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
+      <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
+      <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+    </div>
+  </div>
+<hr class="hr-width">
+  <div class="card mb-3 p-3">
 
-<form action="/menu/meal/{{foundMeal._id}}" method="POST">
-  <label> Title:
-    <input type="text" name="title" />
-  </label>
-  <br>
-  <br>
-  <label> Created by:
-    <input type="text" name="author" readonly/>
-  </label>
-  <label> Dish:
-    <input type="text" name="dish" readonly/>
-  </label>
-  <br>
-  <br>
-  <label> Content:
-    <textarea type="text" name="content"> </textarea>
-  </label>
+  <h2>Comments</h2>
 
-  <button type="submit"> Submit comment </button>
-</form>
+  {{!-- <form action="/menu/meal/{{foundMeal._id}}" method="POST">
+    <label>
+      Title:
+      <input type="text" name="title" />
+    </label>
+    <br />
+    <br />
+    <label>
+      Created by:
+      <input type="text" name="author" readonly />
+    </label>
+    <label>
+      Dish:
+      <input type="text" name="dish" readonly />
+    </label>
+    <br />
+    <br />
+    <label>
+      Content:
+      <textarea type="text" name="content"> </textarea>
+    </label>
+
+    <button type="submit"> Submit comment </button>
+  </form> --}}
+
+<div class="container mt-4">
+    <div class="media">
+        <img src="user-avatar.jpg" class="mr-3" alt="User Avatar">
+        <div class="media-body">
+            <h5 class="mt-0">Username</h5>
+            <p>Comment text goes here...</p>
+            <!-- Nested comments -->
+            {{!-- <div class="media mt-3">
+                <img src="user-avatar.jpg" class="mr-3" alt="User Avatar">
+                <div class="media-body">
+                    <h5 class="mt-0">Nested Username</h5>
+                    <p>Nested comment text goes here...</p>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+    <div class="container mt-4">
+    <h2>Leave a comment</h2>
+    <!-- Comment structure goes here -->
+    <form>
+        <div class="form-group">
+           <img src="user-avatar.jpg" class="mr-3" alt="User Avatar">
+           <h5 class="mt-0">Username</h5>
+            <label for="comment">Add a comment:</label>
+            <textarea class="form-control" id="comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    
+</div>
+    <!-- Repeat the above structure for more comments -->
+</div>
+
+
+
+
+  </div>
+
+
 </div>

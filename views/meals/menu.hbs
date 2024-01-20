@@ -8,19 +8,20 @@
             <h5 class="card-title text-center">{{name}}</h5>
             <p class="card-text">
               <ul>
-                <li class="fw-bold">Ingredients: {{ingredients}}</li>
-                <li class="fw-bold">Allergens: {{allergens}}</li>
-                <li class="fw-bold">Spice level: {{spiceLevel}}</li>
-                <li class="fw-bold">Category: {{category}}</li>
-                <li class="fw-bold">Cuisine: {{cuisine}}</li>
-                <li class="fw-bold">Dish Type: {{dishType}}</li>
+                <li><span class="fw-bold">Ingredients: </span>{{ingredients}}</li>
+                <li><span class="fw-bold">Allergens: </span>{{allergens}}</li>
+                <li><span class="fw-bold">Spice level: </span> {{spiceLevel}}</li>
+                <li><span class="fw-bold">Category: </span>{{category}}</li>
+                <li><span class="fw-bold">Cuisine: </span>{{cuisine}}</li>
+                <li><span class="fw-bold">Dish Type: </span>{{dishType}}</li>
               </ul>
             </p>
           </div>
           <div class="card-footer">
             <div class="d-grid gap-2 col-6 mx-auto">
-              <button class="btn btn-primary " type="button">
-                <a href="/menu/meal/{{_id}}" class="text-light">View</a></button>
+              <button class="btn btn-secondary " type="button">
+                <a href="/menu/meal/{{_id}}" class="text-light u-0">View</a></button>
+                 <button class="btn btn-outline-primary btn-favorite" onclick="toggleFavorite(this)">Add to favorites</button>
             </div>
           </div>
         </div>
