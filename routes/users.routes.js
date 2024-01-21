@@ -134,9 +134,9 @@ router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
 // save the updated user to the database
 router.post('/users/:userId/edit', isAdmin, (req, res, next) => {
   const { userId } = req.params;
-  const { username, email, password, role } = req.body;
+  const { username, role } = req.body;
 
-  User.findByIdAndUpdate(userId, { username, email, password, role })
+  User.findByIdAndUpdate(userId, { username, role })
       .then((foundUser) => {
           console.log(foundUser);
           res.redirect(`/users/${foundUser._id}`)
