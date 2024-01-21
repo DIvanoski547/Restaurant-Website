@@ -104,16 +104,16 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
 
 /*-----POST DELETE USER-----*/
 // route to delete a specific user from the database
-router.post('/users/:userId/delete', isAdmin, (req, res, next) => {
-  const { userId } = req.params;
+// router.post('/users/:userId/delete', isAdmin, (req, res, next) => {
+//   const { userId } = req.params;
 
-  User.findByIdAndDelete(userId)
-      .then(() => res.redirect('/users'))
-      .catch(error => {
-          console.log('Error while removing user: ', error);
-          next(error);
-      });
-});
+//   User.findByIdAndDelete(userId)
+//       .then(() => res.redirect('/users'))
+//       .catch(error => {
+//           console.log('Error while removing user: ', error);
+//           next(error);
+//       });
+// });
 
 /*-----GET EDIT ANY USER-----*/
 // route to find the user we would like to edit in the database
