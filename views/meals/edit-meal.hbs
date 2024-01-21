@@ -1,22 +1,49 @@
-<ul>
-    <li>
-        <a href="/meals/{{foundMeal._id}}">Back</a>
-    </li>
-</ul>
-<h2>Edit meal: {{foundMeal.name}}</h2>
+<div class="container">
 
-<form action="/meals/{{foundMeal._id}}/edit" method="POST">
-    <label> Name:
-        <input type="text" name="name" value="{{foundMeal.name}}">
-    </label>
-    <label> Ingredients:
-        <input type="text" name="ingredients" value="{{foundMeal.ingredients}}">
-    </label>
-    <label> Allergens:
-        <input type="text" name="allergens" value="{{foundMeal.allergens}}">
-    </label>
-    <label for="spiceLevel"> Spice Level: </label>
-    <select name="spiceLevel" id="spiceLevel">
+  <h2 class="text-center">Edit: {{foundMeal.name}}</h2>
+
+  {{! MEAL IMAGE }}
+  <form action="/meals/{{foundMeal._id}}/edit" method="POST">
+    <div class="div">
+      <label class="fw-bold">
+        Image:
+        <input type="text" name="mealImage" value="{{foundMeal.mealImage}}" />
+      </label>
+    </div>
+
+    {{! NAME }}
+    <div class="mb-3">
+      <label class="form-label fw-bold">Name: </label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        value="{{foundMeal.name}}"
+      />
+    </div>
+
+    {{! INGREDIENTS }}
+    <div class="mb-3">
+      <label class="form-label fw-bold">Ingredients: </label>
+      <input
+        type="text"
+        class="form-control"
+        value="{{foundMeal.ingredients}}"
+      />
+    </div>
+
+    {{! ALLERGENS}}
+    <div class="mb-3">
+      <label class="form-label fw-bold">
+        Allergens:
+      </label>
+      <input type="text" class="form-control" value="{{foundMeal.allergens}}" />
+    </div>
+
+    {{! SPICE LEVEL}}
+    <div class="div">
+      <label for="spiceLevel" class="fw-bold"> Spice Level: </label>
+      <select name="spiceLevel" id="spiceLevel">
         <option value="{{_id}}">{{foundMeal.spiceLevel}}</option>
         <option>0</option>
         <option>1</option>
@@ -24,38 +51,81 @@
         <option>3</option>
         <option>4</option>
         <option>5</option>
-    </select>
-    <label> Image:
-        <input type="text" name="mealImage" value="{{foundMeal.mealImage}}">
-    </label>
-    <label for="category"> Category: </label>
-    <select name="category" id="category">
-        <option value="{{_id}}">{{foundMeal.category}}</option>
-        <option>salad</option>
-        <option>soup</option>
-        <option>appetizer</option>
-        <option>main dish</option>
-        <option>side</option>
-        <option>dessert</option>
-    </select>
-    <label> Cuisine:
-        <input type="text" name="cuisine" value="{{foundMeal.cuisine}}">
-    </label>
-    <label for="dishType"> Dish Type: </label>
-    <select name="dishType" id="dishType">
-        <option value="{{_id}}">{{foundMeal.dishType}}</option>
-        <option>breakfast</option>
-        <option>lunch</option>
-        <option>dinner</option>
-        <option>dessert</option>
-        <option>snack</option>
-    </select>
-    
-    <button type="submit">Save changes</button>
-</form>
+      </select>
+    </div>
 
-<div>
-    {{#if errorMessage}}
-      <p style="color: red;" class="error">{{errorMessage}}</p>
-    {{/if}}
+    {{! CUISINE}}
+    {{! <div class="div">
+      <label class="fw-bold">
+        Cuisine:
+        <input type="text" name="cuisine" value="" />
+      </label>
+    </div> }}
+
+    <div class="mb-3">
+      <label class="form-label fw-bold">
+        Cuisine:
+      </label>
+      <input
+        type="text"
+        name="cuisine"
+        class="form-control"
+        value="{{foundMeal.cuisine}}"
+      />
+    </div>
+
+    {{! CATEGORY }}
+    <div class="div mb-3">
+      <label for="category" class="mb-3 fw-bold">Category:</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          id="inputGroupSelect03"
+          aria-label="Example select with button addon"
+        >
+          <option value="{{_id}}">{{foundMeal.category}}</option>
+          <option value="1">Salad</option>
+          <option value="2">Soup</option>
+          <option value="3">Appetizer</option>
+          <option value="4">Main dish</option>
+          <option value="5">Side dish</option>
+          <option value="6">Dessert</option>
+        </select>
+      </div>
+    </div>
+
+    {{! DISHTYPE }}
+    <div class="div mb-3">
+      <label for="category" class="mb-3 fw-bold">Dishtype:</label>
+      <div class="input-group mb-3">
+        <select
+          class="form-select"
+          id="inputGroupSelect03"
+          aria-label="Example select with button addon"
+        >
+          <option value="{{_id}}">{{foundMeal.dishType}}</option>
+          <option value="1">Salad</option>
+          <option value="2">Soup</option>
+          <option value="3">Appetizer</option>
+          <option value="4">Main dish</option>
+          <option value="5">Side dish</option>
+          <option value="6">Dessert</option>
+        </select>
+      </div>
+    </div>
+
+    {{! BUTTONS }}
+    <div class="text-end">
+      <button class="btn btn-secondary btn-block" type="submit">Save changes</button>
+      <button class="btn btn-secondary btn-block">
+        <a href="/meals/{{foundMeal._id}}">Back</a>
+      </button>
+    </div>
+
+    <div>
+      {{#if errorMessage}}
+        <p style="color: red;" class="error">{{errorMessage}}</p>
+      {{/if}}
+    </div>
+  </form>
 </div>
