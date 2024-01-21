@@ -24,6 +24,7 @@ router.get("/signup", isLoggedOut, (req, res, next) => {
 /*-----POST SIGNUP PAGE-----*/
 router.post("/signup", isLoggedOut, (req, res, next) => {
   const { username, email, password } = req.body;
+  const { userId } = req.params;
 
   // Check that a username, email, and password have been provided
   if (username === "" || email === "" || password === "") {
@@ -62,7 +63,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
                   .then(createdUser => {
                       console.log(`New user ${createdUser.username} has been successfully created and added to the database.`)
                       req.session.currentUser = createdUser;
-                      res.redirect('/profile')
+                      res.redirect('/menu')
                   })
                   .catch(error => {
                       console.log('Error creating user: ', error);
