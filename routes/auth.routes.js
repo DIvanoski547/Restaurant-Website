@@ -111,9 +111,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         //******* SAVE THE USER IN THE SESSION ********//
         req.session.currentUser = foundUser;
         console.log(`${foundUser.email} has successfully logged in.`)
-        // Clear the password field
-        delete req.session.currentUser.password;
-        res.redirect('/');
+        res.redirect('/menu');
       }
       else {
         console.log("Incorrect password.");
