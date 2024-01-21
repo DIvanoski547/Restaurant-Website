@@ -1,7 +1,37 @@
-<h2>All Users</h2>
-<button><a href="/users/create">Add a new user</a></h4></button>
-<br>
-<br>
-{{#each allUsers}}
-<p>Username: <a href="/users/{{_id}}"><b>{{username}}</b></a> | Email: {{email}} | Role: {{role}} | <button><a href="/users/{{_id}}/edit">edit</a></button></p>
-{{/each}}
+<div class="container">
+  <h2 class="text-center">All Users</h2>
+
+  {{#each allUsers}}
+    <div class="card mb-3">
+      <div class="card-header">
+        User
+      </div>
+      <div class="card-body">
+        <p class="card-text"><b>Username: </b>{{username}}
+          </p>
+        <p class="card-text"><b>Email:</b>
+          {{email}}</p>
+        <p class="card-text">
+          <b>Role:</b>
+          {{role}}
+        </p>
+        <a
+          href="/users/{{_id}}/edit"
+          class="btn btn-secondary btn-block"
+        >Edit</a>
+        <a href="/users/{{_id}}"
+        class="btn btn-secondary btn-block">
+        Go to profile</a>
+      </div>
+    </div>
+
+  {{/each}}
+
+  {{! ONE MORE "BACK" BUTTON NEEDED}}
+  
+  <div class="div text-end">
+    <button class="btn btn-secondary btn-block">
+      <a href="/users/create" class="u-0 text-light">Add New User</a>
+    </button>
+  </div>
+</div>

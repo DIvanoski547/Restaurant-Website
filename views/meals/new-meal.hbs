@@ -1,52 +1,137 @@
-<h2>Create a new user</h2>
-<form action="/meals/create" method="POST">
-    <label> Name:
-        <input type="text" name="name" placeholder="Pizza">
-    </label>
-    <label> Ingredients:
-        <textarea type="text" name="ingredients" placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."></textarea>
-    </label>
-    <label> Allergens:
-        <textarea type="text" name="allergens" placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."></textarea>
-    </label>
-    <label for="spiceLevel"> Spice Level: </label>
-    <select name="spiceLevel" id="spiceLevel">
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-    </select>
-    <label> Image:
-        <input type="text" name="mealImage" placeholder="Pizza">
-    </label>
-    <label for="category"> Category: </label>
-    <select name="category" id="category">
-        <option>salad</option>
-        <option>soup</option>
-        <option>appetizer</option>
-        <option>main dish</option>
-        <option>side</option>
-        <option>dessert</option>
-    </select>
-    <label> Cuisine:
-        <input type="text" name="cuisine" placeholder="Caribbean">
-    </label>
-    <label for="dishType"> Dish Type: </label>
-    <select name="dishType" id="dishType">
-        <option>breakfast</option>
-        <option>lunch</option>
-        <option>dinner</option>
-        <option>dessert</option>
-        <option>snack</option>
-    </select>
-    
-    <button type="submit">Create new meal</button>
-</form>
+<div class="container">
+  <div class="card p-5 bg-light">
+    <h2 class="text-center">Create a new meal</h2>
+    <form action="/meals/create" method="POST">
 
-<div>
-    {{#if errorMessage}}
-      <p style="color: red;" class="error">{{errorMessage}}</p>
-    {{/if}}
+      {{! MEAL IMAGE }}
+      <div class="div">
+        <label class="fw-bold">
+          Image:
+          <input type="text" name="mealImage" />
+        </label>
+      </div>
+
+      {{! NAME }}
+      <div class="mb-3">
+        <label for="name" class="form-label fw-bold">Name: </label>
+        <input type="text" name="name" class="form-control" />
+      </div>
+
+      {{! ALLERGENS}}
+      <div class="mb-3">
+        <label for="allergens" class="form-label fw-bold">
+          Allergens:
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          name="allergens"
+          id="allergens"
+          placeholder="lactose, glucose"
+        />
+      </div>
+
+      {{! CUISINE }}
+      <div class="mb-3">
+        <label for="cuisine" class="form-label fw-bold">
+          Cuisine:
+        </label>
+        <input type="text" name="cuisine" id="cuisine" class="form-control" />
+      </div>
+
+      {{! INGREDIENTS }}
+      <div class="mb-3">
+        <label for="ingredients" class="form-label fw-bold">Ingredients:
+        </label>
+        <input
+          type="text"
+          id="ingredients"
+          name="ingredients"
+          class="form-control"
+          placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."
+        />
+      </div>
+
+      {{! SPICE LEVEL}}
+      <div class="div mb-3">
+        <label for="spiceLevel" class="fw-bold mb-3">Spice Level: </label>
+        <select class="form-select" name="spiceLevel" id="spiceLevel">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+
+      {{! CATEGORY }}
+      <div class="div mb-3">
+        <label for="category" class="mb-3 fw-bold">Category:</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            name="category"
+            id="category"
+            aria-label="Example select with button addon"
+          >
+            <option value="1">Salad</option>
+            <option value="2">Soup</option>
+            <option value="3">Appetizer</option>
+            <option value="4">Main dish</option>
+            <option value="5">Side dish</option>
+            <option value="6">Dessert</option>
+          </select>
+        </div>
+      </div>
+
+      {{! SPICE LEVEL}}
+      <div class="div mb-3">
+        <label for="spiceLevel" class="fw-bold mb-3">Spice Level: </label>
+        <select class="form-select" name="spiceLevel" id="spiceLevel">
+          <option value="1">0</option>
+          <option value="2">1</option>
+          <option value="3">2</option>
+          <option value="4">3</option>
+          <option value="5">4</option>
+          <option value="6">5</option>
+        </select>
+      </div>
+
+      {{! DISHTYPE }}
+      <div class="div mb-3">
+        <label for="dishType" class="mb-3 fw-bold">Dishtype:</label>
+        <div class="input-group mb-3">
+          <select
+            class="form-select"
+            id="dishType"
+            aria-label="Example select with button addon"
+            name="dishType"
+          >
+            <option value="1">Salad</option>
+            <option value="2">Soup</option>
+            <option value="3">Appetizer</option>
+            <option value="4">Main dish</option>
+            <option value="5">Side dish</option>
+            <option value="6">Dessert</option>
+          </select>
+        </div>
+      </div>
+
+      {{! BUTTONS }}
+      <div class="text-end">
+        <button class="btn btn-secondary btn-block" type="submit">Create New
+          Meal</button>
+        <button class="btn btn-secondary btn-block">
+          <a href="/meals" class="u-0 text-light">Back</a>
+        </button>
+      </div>
+    </form>
+
+    <div>
+      {{#if errorMessage}}
+        <p style="color: red;" class="error">{{errorMessage}}</p>
+      {{/if}}
+    </div>
+  </div>
 </div>

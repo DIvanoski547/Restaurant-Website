@@ -3,7 +3,7 @@
   <div class="card p-5 bg-light">
     <h2 class="text-center">{{foundMeal.name}}</h2>
 
-      {{! MEAL IMAGE }}
+    {{! MEAL IMAGE }}
     <form action="/meals/{{foundMeal._id}}/edit" method="POST">
       <div class="div">
         <label class="fw-bold">
@@ -20,16 +20,6 @@
           name="name"
           class="form-control"
           value="{{foundMeal.name}}"
-        />
-      </div>
-
-      {{! INGREDIENTS }}
-      <div class="mb-3">
-        <label class="form-label fw-bold">Ingredients: </label>
-        <input
-          type="text"
-          class="form-control"
-          value="{{foundMeal.ingredients}}"
         />
       </div>
 

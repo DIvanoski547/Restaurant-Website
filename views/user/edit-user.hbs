@@ -1,32 +1,66 @@
-<ul>
-    <li>
-        <a href="/users/{{foundUser._id}}">Back</a>
-    </li>
-</ul>
-<h2>Edit user: {{foundUser.name}}</h2>
+<div class="container">
 
-<form action="/users/{{foundUser._id}}/edit" method="POST">
-    <label> Username:
-        <input type="text" name="username" value="{{foundUser.username}}">
-    </label>
-    <label> Email:
-        <input type="text" name="email" value="{{foundUser.email}}">
-    </label>
-    <label> Password:
-        <input type="password" name="password" value="{{foundUser.password}}">
-    </label>
-    <label for="role"> Role: </label>
-    <select name="role" id="role">
-        <option value="{{_id}}">{{foundUser.role}}</option>
-        <option>admin</option>
-        <option>moderator</option>
-        <option>customer</option>
-    </select>
-    <button type="submit">Save changes</button>
-</form>
+  <div class="card p-5 bg-light">
+    <h2 class="text-center">Edit: {{foundUser.username}}</h2>
 
-<div>
-    {{#if errorMessage}}
-      <p style="color: red;" class="error">{{errorMessage}}</p>
-    {{/if}}
+    <form action="/users/{{foundUser._id}}/edit" method="POST">
+
+      {{! USERNAME }}
+      <div class="mb-3">
+        <label class="form-label fw-bold">
+          Username:
+        </label>
+        <input
+          type="text"
+          name="username"
+          value="{{foundUser.username}}"
+          class="form-control"
+        />
+      </div>
+
+      {{! ROLE}}
+      <div class="div mb-3">
+        <label for="role" class="fw-bold mb-3">Role: </label>
+        <select class="form-select" name="role" id="role">
+          <option value="{{_id}}">{{foundUser.role}}</option>
+          <option>admin</option>
+          <option>moderator</option>
+          <option>customer</option>
+        </select>
+      </div>
+
+      {{! BUTTON }}
+      <div class="text-end">
+        <button class="btn btn-secondary btn-block" type="submit">Save changes</button>
+        <button class="btn btn-secondary btn-block">
+          <a href="/users" class="u-0 text-light">Back</a>
+        </button>
+      </div>
+
+      {{! ERROR }}
+      <div>
+        {{#if errorMessage}}
+          <p style="color: red;" class="error">{{errorMessage}}</p>
+        {{/if}}
+      </div>
+
+    </form>
+  </div>
 </div>
+
+{{! USER SHOULD NOT BE ABLE TO CHANGE THE PASSWORD }}
+
+{{!-- <div class="mb-3">
+          <label class="form-label fw-bold">
+        Email:
+        </label>
+        <input type="text" name="email" value="{{foundUser.email}}" class="form-control" />
+      
+      </div> --}}
+
+{{! USER SHOULD NOT BE ABLE TO CHANGE THE PASSWORD }}
+
+{{!-- <label>
+        Password:
+        <input type="password" name="password" value="{{foundUser.password}}" />
+      </label> --}}
