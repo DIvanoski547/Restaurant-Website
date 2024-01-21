@@ -147,7 +147,7 @@ router.post('/users/:userId/edit', isAdmin, (req, res, next) => {
   User.findByIdAndUpdate(userId, { username, role })
       .then((foundUser) => {
           console.log(foundUser);
-          res.redirect(`/users/${foundUser._id}`)
+          res.redirect(`/users`)                                  // Don't need "${foundUser._id}" in the redirect
       })
       .catch(error => {
           console.log('Error while updating user: ', error);

@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="card p-5 bg-light">
-    <h2 class="text-center">Edit: {{foundUser.username}}</h2>
+    <h2 class="text-center">Edit user: {{foundUser.username}}</h2>
 
     <form action="/users/{{foundUser._id}}/edit" method="POST">
 
@@ -31,7 +31,7 @@
 
       {{! BUTTON }}
       <div class="text-end">
-        <button class="btn btn-secondary btn-block" type="submit">Save changes</button>
+        <button class="btn btn-secondary btn-block" type="submit">Save changes</a></button>
         <button class="btn btn-secondary btn-block">
           <a href="/users" class="u-0 text-light">Back</a>
         </button>
