@@ -1,16 +1,43 @@
-body {
+body, html {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* height: 5000px; */
+  overflow-x: hidden;
 }
 
-/* .bg {
-  background-image: url(../images/background1.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.navbar-custom {
+/* margin-top: 10px; */
+
+ background: black;
+opacity: 0.7;
+/* font-weight: bold; */
+
+ 
+}
+
+.bg-img {
+  width: 100vw;  
   height: 100vh;
-} */
+  object-fit: cover;
+  position: absolute;
+  filter: brightness(0.9);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+.btn-homepage{
+  background-color: black;
+  opacity: 0.6;
+  border-radius: 20px;
+  border: #f0ad4e 2px solid;
+  padding: 5px 15px;
+  color: white;
+  text-transform: uppercase;
+
+}
 
 .p-10 {
   padding: 50px;
@@ -22,7 +49,7 @@ body {
 }
 
 .navbar-nav a {
-  color: burlywood;
+  color: #f0ad4e;
 }
 
 a {
@@ -34,7 +61,6 @@ h1 {
 }
 .u-0{
   text-decoration: none;
-
 }
 
 
@@ -45,5 +71,12 @@ h1 {
   height: 5px;
   border-radius: 5px;
   background: black;
+}
 
+.logout-btn{
+  background-color: transparent;
+  color: #f0ad4e;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
