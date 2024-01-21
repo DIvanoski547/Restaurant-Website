@@ -95,7 +95,15 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
-      .then(foundUser => res.render('user/user-details', { foundUser, userInSession: req.session.currentUser }))
+      .then(foundUser => {
+        Comment.find({ author: userId })
+        .populate("dish")
+        .then((foundComments) => {
+          console.log('foundComments', foundComments);
+          // res.render("user/profile", { foundComments, userInSession: req.session.currentUser })
+          res.render('user/user-details', { foundUser, foundComments })
+        })
+      })
       .catch(error => {
           console.log('Error while retrieving user details: ', error);
           next(error);
@@ -104,16 +112,16 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
 
 /*-----POST DELETE USER-----*/
 // route to delete a specific user from the database
-router.post('/users/:userId/delete', isAdmin, (req, res, next) => {
-  const { userId } = req.params;
+// router.post('/users/:userId/delete', isAdmin, (req, res, next) => {
+//   const { userId } = req.params;
 
-  User.findByIdAndDelete(userId)
-      .then(() => res.redirect('/users'))
-      .catch(error => {
-          console.log('Error while removing user: ', error);
-          next(error);
-      });
-});
+//   User.findByIdAndDelete(userId)
+//       .then(() => res.redirect('/users'))
+//       .catch(error => {
+//           console.log('Error while removing user: ', error);
+//           next(error);
+//       });
+// });
 
 /*-----GET EDIT ANY USER-----*/
 // route to find the user we would like to edit in the database
@@ -134,9 +142,9 @@ router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
 // save the updated user to the database
 router.post('/users/:userId/edit', isAdmin, (req, res, next) => {
   const { userId } = req.params;
-  const { username, email, password, role } = req.body;
+  const { username, role } = req.body;
 
-  User.findByIdAndUpdate(userId, { username, email, password, role })
+  User.findByIdAndUpdate(userId, { username, role })
       .then((foundUser) => {
           console.log(foundUser);
           res.redirect(`/users/${foundUser._id}`)
