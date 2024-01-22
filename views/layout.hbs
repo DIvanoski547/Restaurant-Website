@@ -13,62 +13,62 @@
       crossorigin="anonymous"
     />
   </head>
-  <body >
+  <body>
 
     <div class="navbar-custom mb-5">
-      <div class="container-fluid ">
-      <nav class="navbar navbar-expand-lg">
-        {{! <div class="container-fluid"> }}
-        <div class="">
-          <a class="navbar-brand text-warning" href="/">
-            <img
-              src="/images/logo.png"
-              alt="Logo"
-              width="60"
-              height="60"
-              class="d-inline-block"
-            />SavorEats Bistro
-          </a>
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav d-flex ms-auto">
-            {{#if userInSession.username}}
-              <a class="nav-link" href="/">Home</a>
-              <a class="nav-link" href="/about">About</a>
-              <a class="nav-link" href="/menu">Menu</a>
-              <a
-                class="nav-link"
-                href="/profile/{{userInSession._id}}"
-              >Profile</a>
-              <a class="nav-link" href="">
-                <form id="logout-form" action="/logout" method="POST">
-                  <button class="logout-btn">Logout</button>
-                </form>
-              </a>
-            {{else}}
-              <a class="nav-link" href="/">Home</a>
-              <a class="nav-link" href="/about">About</a>
-
-              <a class="nav-link" href="/menu">Menu</a>
-              <a class="nav-link" href="/signup">Sign up</a>
-              <a class="nav-link" href="/login">Login</a>
-            {{/if}}
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
+          {{! <div class="container-fluid"> }}
+          <div class="">
+            <a class="navbar-brand text-warning" href="/">
+              <img
+                src="/images/logo.png"
+                alt="Logo"
+                width="60"
+                height="60"
+                class="d-inline-block"
+              />SavorEats Bistro
+            </a>
           </div>
-        </div>
-        {{! </div> }}
-      </nav>
-    </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav d-flex ms-auto">
+              {{#if userInSession.username}}
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/about">About</a>
+                <a class="nav-link" href="/menu">Menu</a>
+                <a
+                  class="nav-link"
+                  href="/profile/{{userInSession._id}}"
+                >Profile</a>
+                <a class="nav-link" href="">
+                  <form id="logout-form" action="/logout" method="POST">
+                    <button class="logout-btn">Logout</button>
+                  </form>
+                </a>
+              {{else}}
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/about">About</a>
+
+                <a class="nav-link" href="/menu">Menu</a>
+                <a class="nav-link" href="/signup">Sign up</a>
+                <a class="nav-link" href="/login">Login</a>
+              {{/if}}
+            </div>
+          </div>
+          {{! </div> }}
+        </nav>
+      </div>
     </div>
 
     {{{body}}}
@@ -79,6 +79,10 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
   </body>
 
 </html>
