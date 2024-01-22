@@ -4,16 +4,16 @@
   {{#each allUsers}}
     <div class="card mb-3">
       <div class="card-header">
-        User
+        {{!-- User --}} {{role}}
       </div>
       <div class="card-body">
         <p class="card-text"><b>Username: </b>{{username}}
           </p>
         <p class="card-text"><b>Email:</b>
           {{email}}</p>
-        <p class="card-text">
+        {{!-- <p class="card-text">
           <b>Role:</b>
-          {{role}}
+          {{role}} --}}
         </p>
         <a
           href="/users/{{_id}}/edit"
