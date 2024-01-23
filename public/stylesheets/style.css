@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -7,16 +8,15 @@ body, html {
 }
 
 .navbar-custom {
-/* margin-top: 10px; */
+  /* margin-top: 10px; */
 
- background-color: rgb(63, 63, 63, 0.5);
-/* opacity: 0.7; */
-/* font-weight: bold; */
-
+  background-color: rgb(63, 63, 63, 0.5);
+  /* opacity: 0.7; */
+  /* font-weight: bold; */
 }
 
 .bg-img {
-  width: 100vw;  
+  width: 100vw;
   height: 100vh;
   object-fit: cover;
   position: absolute;
@@ -26,8 +26,7 @@ body, html {
   z-index: -1;
 }
 
-
-.btn-homepage{
+.btn-homepage {
   background-color: black;
   opacity: 0.6;
   border-radius: 20px;
@@ -35,7 +34,6 @@ body, html {
   padding: 5px 15px;
   color: white;
   text-transform: uppercase;
-
 }
 
 .p-10 {
@@ -58,12 +56,11 @@ a {
 h1 {
   color: 15px;
 }
-.u-0{
+.u-0 {
   text-decoration: none;
 }
 
-
-.hr-width{
+.hr-width {
   position: relative;
   margin: 15px 0px;
   border: none;
@@ -72,7 +69,7 @@ h1 {
   background: black;
 }
 
-.logout-btn{
+.logout-btn {
   background-color: transparent;
   color: #f0ad4e;
   border: 0;
@@ -80,52 +77,42 @@ h1 {
   padding: 0;
 }
 
-
-
 .accordion-item h2.accordion-header button.accordion-button {
-
-  background-color:rgba(230, 205, 171, 0.3);
-  color: black; 
+  background-color: rgba(230, 205, 171, 0.3);
+  color: black;
   font-weight: bold;
   /* background-color: transparent; */
-  
 }
-
 
 .accordion-item h2.accordion-header button.accordion-button:hover {
-  background-color: darkgoldenrod ; 
+  background-color: darkgoldenrod;
   color: black;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-
-.bg-orange{
+.bg-orange {
   background-image: url(/images/background4.jpg);
   background-size: auto;
   /* background-position: center; */
   background-repeat: no-repeat;
- height: calc(100vh - 76px);
- 
+  height: calc(100vh - 76px);
 }
 
-.bg-card{
- 
-    background-image: url(/images/delicious-food-arrangement-flat-lay_23-2149235809.jpg);
-    background-size: cover;
-    /* background-position: center; */
-    background-repeat: no-repeat;
-   box-shadow:  -1px 1px 16px -4px rgba(0,0,0,0.75);
-   height: 300px;
-   border-radius: 5px;
-  
+.bg-card {
+  background-image: url(/images/delicious-food-arrangement-flat-lay_23-2149235809.jpg);
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  box-shadow: -1px 1px 16px -4px rgba(0, 0, 0, 0.75);
+  height: 300px;
+  border-radius: 5px;
 }
 
-.footer{
-  /* position: absolute; */
-  bottom: 0;
-  width: 100%;
-  height: 22px;
-  background-color: rgb(63, 63, 63, 0.5);
-  text-align: center;
-  color: #f0ad4e;
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: red;
+  cursor: pointer;
 }

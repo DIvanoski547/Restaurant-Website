@@ -4,7 +4,9 @@
     {{#each allMeals}}
       <div class="col mb-3">
         <div class="card h-100">
+          
           <img src={{mealImage}} class="card-img-top" alt="meal-image" />
+          <i class="fas fa-heart favorite-icon"></i>
           <div class="card-body">
             <h5 class="card-title text-center">{{name}}</h5>
             <p class="card-text">
@@ -30,7 +32,7 @@
               <button
                 class="btn btn-outline-primary btn-favorite"
                 onclick="toggleFavorite(this)"
-              >Add to favorites</button>
+              ><i class="far fa-heart"></i></button>
             </div>
           </div>
         </div>
