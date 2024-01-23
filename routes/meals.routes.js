@@ -14,7 +14,7 @@ const User = require("../models/User.model");
 router.get("/menu", (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
-          res.render('meals/menu', { allMeals, userInSession: req.session.currentUser })
+          res.render('meals/menu', { allMeals, userInSession: req.session.currentUser })       
           console.log(`There are currently ${allMeals.length} meals in the database.`);
       })
       .catch(error => {
