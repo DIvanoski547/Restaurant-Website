@@ -84,9 +84,10 @@ h1 {
 
 .accordion-item h2.accordion-header button.accordion-button {
 
-  background-color:rgba(240,173,78,.3);
+  background-color:rgba(230, 205, 171, 0.3);
   color: black; 
   font-weight: bold;
+  /* background-color: transparent; */
   
 }
 
