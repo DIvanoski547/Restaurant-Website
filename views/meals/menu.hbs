@@ -1,6 +1,7 @@
-<div class="container">
+<div class="bg_marble">
+  <div class="container">
   <h2 class="text-center">MENU</h2>
-  <div class="row row-cols-1 row-cols-md-3 mb-3">
+  <div class="row row-cols-1 row-cols-md-3">
     {{#each allMeals}}
       <div class="col mb-3">
         <div class="card h-100">
@@ -29,14 +30,15 @@
                   href="/menu/meal/{{_id}}"
                   class="text-light u-0"
                 >View</a></button>
-              <button
+              {{!-- <button
                 class="btn btn-outline-primary btn-favorite"
                 onclick="toggleFavorite(this)"
-              ><i class="far fa-heart"></i></button>
+              ><i class="far fa-heart"></i></button> --}}
             </div>
           </div>
         </div>
       </div>
     {{/each}}
   </div>
+</div>
 </div>

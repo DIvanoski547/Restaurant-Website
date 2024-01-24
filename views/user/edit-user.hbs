@@ -1,6 +1,7 @@
-<div class="container">
+<div class="bg_marble">
+  <div class="container">
 
-  <div class="card p-5 bg-light">
+  <div class="card p-5 bg-light ">
     <h2 class="text-center">Edit user: {{foundUser.username}}</h2>
 
     <form action="/users/{{foundUser._id}}/edit" method="POST">
@@ -46,6 +47,7 @@
 
     </form>
   </div>
+</div>
 </div>
 
 {{! USER SHOULD NOT BE ABLE TO CHANGE THE PASSWORD }}

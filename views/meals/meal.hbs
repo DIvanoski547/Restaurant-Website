@@ -1,115 +1,81 @@
-<div class="container">
+<div class="bg_marble">
+  <div class="container">
   <button class="btn btn-secondary mb-3">
-    <a href="/meals" class="text-light u-0"> Back to menu</a>
+    <a href="/menu" class="text-light u-0"> Back to menu</a>
   </button>
 
-  <img class="card mb-3">
-    
-    <img src="{{foundMeal.mealImage}}" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h2 class="card-title text-center">{{foundMeal.name}}</h2>
-      <p class="card-text"> <b>Ingredients</b>: {{foundMeal.ingredients}}</p>
-      <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
-      <p class="card-text"><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p> 
-      <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
-      <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
-      <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+  <img class="card mb-3" />
+
+  <img src="{{foundMeal.mealImage}}" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h2 class="card-title text-center">{{foundMeal.name}}</h2>
+    <p class="card-text"> <b>Ingredients</b>: {{foundMeal.ingredients}}</p>
+    <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
+    <p class="card-text"><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p>
+    <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
+    <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
+    <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+  </div>
+
+  {{! SHOW COMMENTS NEW }}
+<div class="container p-0">
+  <hr class="hr-width" />
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12">
+      <div class="card text-dark">
+        <div class="card-body p-4">
+          <h4 class="mb-3">Recent comments:</h4>
+          {{#each foundMeal.comments}}
+
+            <div class="d-flex flex-start">
+              <img
+                class="rounded-circle shadow-1-strong me-3"
+                src=""
+                alt="user_img"
+                width="60"
+                height="60"
+              />
+              <div>
+                <h6 class="fw-bold mb-1"><b>{{author.username}}</b></h6>
+                <div class="d-flex align-items-center mb-3">
+                  {{! <p class="mb-0">
+                    March 07, 2021
+                    <span class="badge bg-primary">Pending</span>
+                  </p> }}
+                </div>
+                <p class="mb-0">
+                  {{content}}
+                </p>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
     </div>
-  
-<hr class="hr-width">
+  </div>
+</div>
+
+
+  <hr class="hr-width" />
+
+  {{! COMMENTS FORM }}
   <div class="card mb-3 p-3">
 
-  <h2>Comments</h2>
+    {{#if userInSession.username}}
+      <h2>Leave a comment</h2>
 
-  {{!-- <form action="/menu/meal/{{foundMeal._id}}" method="POST">
-    <label>
-      Title:
-      <input type="text" name="title" />
-    </label>
-    <br />
-    <br />
-    <label>
-      Created by:
-      <input type="text" name="author" readonly />
-    </label>
-    <label>
-      Dish:
-      <input type="text" name="dish" readonly />
-    </label>
-    <br />
-    <br />
-    <label>
-      Content:
-      <textarea type="text" name="content"> </textarea>
-    </label>
-    <button type="submit"> Submit comment </button>
-  </form> --}}
+      <form action="/menu/meal/{{foundMeal._id}}/create-comment" method="POST">
+        <label>
+          Content:
+          <textarea type="text" name="content"> </textarea>
+        </label>
 
-<div class="container mt-4">
-    <div class="media">
-        <img src="user-avatar.jpg" class="mr-3" alt="User Avatar">
-        <div class="media-body">
-            <h5 class="mt-0">Username</h5>
-            <p>Comment text goes here...</p>
-            <!-- Nested comments -->
-            {{!-- <div class="media mt-3">
-                <img src="user-avatar.jpg" class="mr-3" alt="User Avatar">
-                <div class="media-body">
-                    <h5 class="mt-0">Nested Username</h5>
-                    <p>Nested comment text goes here...</p>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-    <div class="container mt-4">
-    <h2>Leave a comment</h2>
-    <!-- Comment structure goes here -->
-    <form>
-        <div class="form-group">
-           <img src="user-avatar.jpg" class="mr-3" alt="User Avatar">
-           <h5 class="mt-0">Username</h5>
-            <label for="comment">Add a comment:</label>
-            <textarea class="form-control" id="comment" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <button type="submit"> Submit comment </button>
+      </form>
+    {{/if}}
 
+  </div>
 
 </div>
-    <!-- Repeat the above structure for more comments -->
-</div>
 
-
-{{!-- <div class="container">
-  <ul>
-    <li>
-        <a href="/menu">Full menu</a>
-    </li>
-</ul>
-<h2>{{foundMeal.name}}</h2>
-<p><b>Ingredients:</b> {{foundMeal.ingredients}}</p>
-<p><b>Allergens:</b> {{foundMeal.allergens}}</p>
-<p><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p>
-<p><b>Meal Image:</b> <br> <img class="img-wrapper" src="{{foundMeal.mealImage}}"></p>
-<p><b>Category:</b> {{foundMeal.category}}</p>
-<p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
-<p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
-
-{{#if userInSession.username}}
-<h2>Leave a comment</h2>
-
-<form action="/menu/meal/{{foundMeal._id}}/create-comment" method="POST">
-  <label> Content:
-    <textarea type="text" name="content"> </textarea>
-  </label>
-
-  <button type="submit"> Submit comment </button>
-</form>
-{{/if}}
-</div>
-
-
-{{#each foundMeal.comments}}
-  <p><b>{{author.username}}</b>: {{content}}</p>
-{{/each}} --}}
 </div>
