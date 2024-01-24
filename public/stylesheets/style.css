@@ -103,7 +103,7 @@ h1 {
   background-image: url(/images/bg_concrete1.jpg);
   background-size: cover;
   background-repeat: repeat;
-  /* height: calc(100vh - 76px); */
+  height: calc(100vh - 76px);
 }
 
 .bg-u-card {

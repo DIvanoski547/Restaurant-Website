@@ -1,89 +1,91 @@
-<div class="bg-orange">
+<div class="bg_marble">
   <div class="container">
-  <div
-    id="signup-form"
-    class="position-absolute top-50 start-50 translate-middle card p-10 bg-light"
-  >
+    <div
+      id="signup-form"
+      class="position-absolute top-50 start-50 translate-middle card p-10 bg-light"
+    >
 
-    <form action="/signup" method="POST">
-      <h3 class="text-center">Sign Up</h3>
-      {{! USERNAME FORM }}
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-3 text-end">
-          <label
-            for="inputusername"
-            class="col-form-label fw-bold"
-          >Username:</label>
-        </div>
-        <div class="col-auto">
-          <input
-            type="username"
-            name="username"
-            id="inputusername"
-            class="form-control"
-            aria-describedby="passwordHelpInline"
-            placeholder="FoodLover"
-          />
-        </div>
-        <div class="col-auto">
-          {{! <p id="usernameHelpInline" class="form-text">
+      <form action="/signup" method="POST">
+        <h3 class="text-center">Sign Up</h3>
+        {{! USERNAME FORM }}
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-3 text-end">
+            <label
+              for="inputusername"
+              class="col-form-label fw-bold"
+            >Username:</label>
+          </div>
+          <div class="col-auto">
+            <input
+              type="username"
+              name="username"
+              id="inputusername"
+              class="form-control"
+              aria-describedby="passwordHelpInline"
+              placeholder="FoodLover"
+            />
+          </div>
+          <div class="col-auto">
+            {{! <p id="usernameHelpInline" class="form-text">
             username help line
           </p> }}
+          </div>
         </div>
-      </div>
 
-      {{! EMAIL FORM }}
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-3 text-end">
-          <label for="inputemail" class="col-form-label fw-bold">Email:</label>
+        {{! EMAIL FORM }}
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-3 text-end">
+            <label
+              for="inputemail"
+              class="col-form-label fw-bold"
+            >Email:</label>
+          </div>
+          <div class="col-auto">
+            <input
+              type="email"
+              name="email"
+              id="inputemail"
+              class="form-control"
+              aria-describedby="passwordHelpInline"
+              placeholder="foodlover@mail.com"
+            />
+          </div>
         </div>
-        <div class="col-auto">
-          <input
-            type="email"
-            name="email"
-            id="inputemail"
-            class="form-control"
-            aria-describedby="passwordHelpInline"
-            placeholder="foodlover@mail.com"
-          />
-        </div>
-      </div>
 
-      {{! PASSWORD FORM  }}
-      <div class="row g-3 align-items-center mb-3">
-        <div class="col-3 text-end">
-          <label
-            for="inputPassword6"
-            class="col-form-label fw-bold"
-          >Password:</label>
+        {{! PASSWORD FORM  }}
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-3 text-end">
+            <label
+              for="inputPassword6"
+              class="col-form-label fw-bold"
+            >Password:</label>
+          </div>
+          <div class="col-auto">
+            <input
+              type="password"
+              name="password"
+              id="inputPassword6"
+              class="form-control"
+              placeholder="*********"
+              data-bs-toggle="tooltip"
+              data-bs-placement="right"
+              data-bs-title="Password must be at least 8 characters long"
+              data-bs-custom-class="custom-tooltip"
+            />
+          </div>
         </div>
-        <div class="col-auto">
-          <input
-            type="password"
-            name="password"
-            id="inputPassword6"
-            class="form-control"
-            placeholder="*********"
-            data-bs-toggle="tooltip"
-            data-bs-placement="right"
-            data-bs-title="Password must be at least 8 characters long"
-            data-bs-custom-class="custom-tooltip"
-          />
+
+        {{! BUTTON }}
+        <div class="text-center">
+          <button class="btn btn-secondary" type="submit">
+            Sign Up</button>
         </div>
-      </div>
 
-      {{! BUTTON }}
-      <div class="text-center">
-        <button class="btn btn-secondary" type="submit">
-          Sign Up</button>
-      </div>
-
-      {{! ERROR }}
-      {{#if errorMessage}}
-        <p style="color: red;" class="error">{{errorMessage}}</p>
-      {{/if}}
-    </form>
+        {{! ERROR }}
+        {{#if errorMessage}}
+          <p style="color: red;" class="error">{{errorMessage}}</p>
+        {{/if}}
+      </form>
+    </div>
   </div>
-
-</div>
 </div>

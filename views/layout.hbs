@@ -44,7 +44,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav d-flex ms-auto">
-              {{#if userInSession.username}}
+              
+              {{#if userInSession.username }}
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/about">About</a>
                 <a class="nav-link" href="/menu">Menu</a>
@@ -52,6 +53,12 @@
                   class="nav-link"
                   href="/profile/{{userInSession._id}}"
                 >Profile</a>
+                
+                <a
+                  class="nav-link"
+                  href="/users"
+                >Users</a>
+               
                 <a class="nav-link" href="">
                   <form id="logout-form" action="/logout" method="POST">
                     <button class="logout-btn">Logout</button>
@@ -64,6 +71,7 @@
                 <a class="nav-link" href="/signup">Sign up</a>
                 <a class="nav-link" href="/login">Login</a>
               {{/if}}
+              
             </div>
           </div>
           {{! </div> }}
