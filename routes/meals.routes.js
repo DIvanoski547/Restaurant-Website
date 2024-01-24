@@ -170,14 +170,14 @@ router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
 /*-----POST UPDATE ANY MEAL-----*/
 // backend route to submit the form to update the meal in the database
 // save the updated meal to the database
-router.post('/meals/:mealId/edit', isAdmin, (req, res, next) => {
+router.post('/meals/:mealId/edit', isAdmin, fileUploader.single('meal-cover-image'), (req, res, next) => {
   const { mealId } = req.params;
-  const { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType } = req.body;
+  const { name, ingredients, allergens, spiceLevel, category, cuisine, dishType } = req.body;
 
-  Meal.findByIdAndUpdate(mealId, { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType })
+  Meal.findByIdAndUpdate(mealId, { name, ingredients, allergens, spiceLevel, mealImage: req.file.path, category, cuisine, dishType })
       .then((foundMeal) => {
           console.log(foundMeal);
-          res.redirect(`/users/${foundMeal._id}`)
+          res.redirect(`/meals/${foundMeal._id}`)
       })
       .catch(error => {
           console.log('Error while updating meal: ', error);
