@@ -9,6 +9,10 @@ const Meal = require("../models/Meal.model");
 const Comment = require("../models/Comment.model");
 const User = require("../models/User.model");
 
+// Require the fileUploader from the cloudinary.config.js file to be able to upload files to cloudinary
+// Will use as a middleware on create meal route
+const fileUploader = require('../config/cloudinary.config');
+
 /*-----GET MENU PAGE-----*/
 // public route to get menu page and display a list of all meals found in the database
 router.get("/menu", (req, res, next) => {
@@ -74,9 +78,8 @@ router.get('/meals/create', isAdmin, (req, res) => {
 
 /*-----POST CREATE MEAL-----*/
 // backend route to create a new meal using data submitted via form
-router.post('/meals/create', isAdmin, (req, res, next) => {
-  console.log('New meal added via online form:', req.body);
-  const { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType } = req.body;
+router.post('/meals/create', isAdmin, fileUploader.single('meal-cover-image'), (req, res, next) => {
+  const { name, ingredients, allergens, spiceLevel, category, cuisine, dishType } = req.body;
 
   // Check that a name, ingredients and allergens have been provided
   if (name === "" || ingredients === "" || allergens === "") {
@@ -91,9 +94,10 @@ router.post('/meals/create', isAdmin, (req, res, next) => {
   Meal.findOne({ name })
       .then((foundMeal) => {
         if (!foundMeal) {
-          Meal.create({ name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType })
+          Meal.create({ name, ingredients, allergens, spiceLevel, mealImage: req.file.path, category, cuisine, dishType })
               .then(() => res.redirect("/meals"));
-              console.log('New meal successfully added to database.')
+              console.log('New meal successfully added to database via online form: ', req.body)
+              console.log('req.file: information pertaining to uploaded image', req.file)
       } 
           else {
               res.render("meals/new-meal", {
