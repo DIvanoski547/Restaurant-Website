@@ -4,11 +4,12 @@
     <h2 class="text-center">{{foundMeal.name}}</h2>
 
     {{! MEAL IMAGE }}
-    <form action="/meals/{{foundMeal._id}}/edit" method="POST">
+    <form action="/meals/{{foundMeal._id}}/edit" method="POST" enctype="multipart/form-data">
       <div class="div">
         <label class="fw-bold">
           Image:
-          <input type="text" name="mealImage" value="{{foundMeal.mealImage}}" />
+          <input type="file" name="meal-cover-image"/>
+          <img src="{{foundMeal.mealImage}}">
         </label>
       </div>
 
@@ -72,12 +73,12 @@
             aria-label="Example select with button addon"
           >
             <option value="{{_id}}">{{foundMeal.category}}</option>
-            <option value="1">Salad</option>
-            <option value="2">Soup</option>
-            <option value="3">Appetizer</option>
-            <option value="4">Main dish</option>
-            <option value="5">Side dish</option>
-            <option value="6">Dessert</option>
+            <option >Salad</option>
+            <option >Soup</option>
+            <option >Appetizer</option>
+            <option >Main Dish</option>
+            <option >Side</option>
+            <option >Dessert</option>
           </select>
         </div>
       </div>
@@ -92,12 +93,10 @@
             aria-label="Example select with button addon"
           >
             <option value="{{_id}}">{{foundMeal.dishType}}</option>
-            <option value="1">Salad</option>
-            <option value="2">Soup</option>
-            <option value="3">Appetizer</option>
-            <option value="4">Main dish</option>
-            <option value="5">Side dish</option>
-            <option value="6">Dessert</option>
+            <option >Breakfast</option>
+            <option >Lunch</option>
+            <option >Dinner</option>
+            <option >Dessert</option>
           </select>
         </div>
       </div>
