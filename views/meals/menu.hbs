@@ -1,5 +1,5 @@
 <div class="bg-concrete-m-u">
-  <div class="container">
+  <div class="container py-3">
     <h2 class="text-center">MENU</h2>
     <div class="row row-cols-1 row-cols-md-3">
       {{#each allMeals}}
@@ -23,12 +23,12 @@
               </p>
             </div>
             <div class="card-footer">
-              <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-secondary" type="button">
+              <div class="d-grid gap-2 text-center mx-auto">
+               
                   <a
                     href="/menu/meal/{{_id}}"
                     class="text-light u-0"
-                  >View</a></button>
+                  > <button class="btn btn-secondary px-5" type="button">View   </button> </a> 
                 {{! <button
                 class="btn btn-outline-primary btn-favorite"
                 onclick="toggleFavorite(this)"

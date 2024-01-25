@@ -1,45 +1,49 @@
 <div class="bg-concrete-m-u">
   <div class="container">
-  <h2 class="text-center">All Meals | Administration Panel</h2>
-  <button class="btn btn-secondary mb-3" type="button">
-    <a href="/meals/create" class="text-light u-0">Add a new meal</a></button>
-  <div class="row row-cols-1 row-cols-md-3">
-    {{#each allMeals}}
-      <div class="col mb-3">
-        <div class="card h-100">
-          <img src={{mealImage}} class="card-img-top img-card-fix" alt="meal-image" />
-          <div class="card-body">
-            <h5 class="card-title text-center">{{name}}</h5>
-            <p class="card-text">
-              <ul>
-                <li><span class="fw-bold">Ingredients:
-                  </span>{{ingredients}}</li>
-                <li><span class="fw-bold">Allergens: </span>{{allergens}}</li>
-                <li><span class="fw-bold">Spice level: </span>
-                  {{spiceLevel}}</li>
-                <li><span class="fw-bold">Category: </span>{{category}}</li>
-                <li><span class="fw-bold">Cuisine: </span>{{cuisine}}</li>
-                <li><span class="fw-bold">Dish Type: </span>{{dishType}}</li>
-              </ul>
-            </p>
-          </div>
-          <div class="card-footer">
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <button class="btn btn-secondary" type="button">
-                <a
-                  href="/meals/{{_id}}"
-                  class="text-light u-0"
-                >View</a></button>
-              <button class="btn btn-secondary" type="button">
-                <a
-                  href="/meals/{{_id}}/edit"
-                  class="text-light u-0"
-                >Edit</a></button>
+    <h2 class="text-center">All Meals | Administration Panel</h2>
+    <button class="btn btn-secondary mb-3" type="button">
+      <a href="/meals/create" class="text-light u-0">Add a new meal</a></button>
+    <div class="row row-cols-1 row-cols-md-3">
+      {{#each allMeals}}
+        <div class="col mb-3">
+          <div class="card h-100">
+            <img
+              src={{mealImage}}
+              class="card-img-top img-card-fix"
+              alt="meal-image"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-center">{{name}}</h5>
+              <p class="card-text">
+                <ul>
+                  <li><span class="fw-bold">Ingredients:
+                    </span>{{ingredients}}</li>
+                  <li><span class="fw-bold">Allergens: </span>{{allergens}}</li>
+                  <li><span class="fw-bold">Spice level: </span>
+                    {{spiceLevel}}</li>
+                  <li><span class="fw-bold">Category: </span>{{category}}</li>
+                  <li><span class="fw-bold">Cuisine: </span>{{cuisine}}</li>
+                  <li><span class="fw-bold">Dish Type: </span>{{dishType}}</li>
+                </ul>
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="d-flex gap-2 justify-content-between mx-auto">
+                <a href="/meals/{{_id}}/edit" class="text-light u-0">
+                  <button
+                    class="btn btn-secondary px-5"
+                    type="button"
+                  >Edit</button></a>
+                <a href="/meals/{{_id}}" class="text-light u-0">
+                  <button
+                    class="btn btn-secondary px-5"
+                    type="button"
+                  >View</button></a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
-</div>
 </div>
