@@ -15,6 +15,10 @@ html {
   /* font-weight: bold; */
 }
 
+.card-color-u {
+  background-color: rgba(230, 205, 171, 0.3);
+}
+
 .bg-img {
   width: 100vw;
   height: 100vh;
@@ -60,6 +64,11 @@ h1 {
   text-decoration: none;
 }
 
+.img-card-fix {
+  height: 250px;
+  width: 200px;
+}
+
 .hr-width {
   position: relative;
   margin: 15px 0px;
@@ -103,14 +112,20 @@ h1 {
   background-image: url(/images/bg_concrete1.jpg);
   background-size: cover;
   background-repeat: repeat;
-  height: 100vh;
+  height: calc(100vh - 76px);
 }
 
 .bg-concrete {
   background-image: url(/images/bg_concrete1.jpg);
   background-size: cover;
   background-repeat: repeat;
-  height: calc(100vh - 76px);
+  height: 100vh;
+}
+
+.bg-concrete-m-u {
+  background-image: url(/images/bg_concrete1.jpg);
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 .bg-u-card {

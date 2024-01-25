@@ -1,35 +1,45 @@
-
+<div class="bg-concrete-fix">
   <div class="container">
-  <div class="row mt-5">
+    <div class="row">
 
-    <div class="text-center"><h2>Welcome to your profile page,
-        {{userInSession.username}}!</h2>
-      <p>Thank you for creating an account with us!</p></div>
-    <div class="col-5">
-      <div class="p-3 bg-card">
-        <h3>Personal Info</h3>
-        {{#if userInSession.username}}
+      <div class="text-center">
+        <h2>Welcome to your profile page,
+          {{userInSession.username}}!
+        </h2>
+        <p>Thank you for creating an account with us!</p></div>
 
-          <h6>Email: {{userInSession.email}}</h6>
-          <h6>Role: {{userInSession.role}}</h6>
-
-          <br />
-        {{else}}
-          <p>Still no logged in user, sorry!</p>
-        {{/if}}
+      <div class="col-5">
+        <div class="card p-3 h-100 bg-u-card bg-body-secondary">
+          <h3>Personal Info</h3>
+          {{#if userInSession.username}}
+            <h6>Email: {{userInSession.email}}</h6>
+            <h6>Role: {{userInSession.role}}</h6>
+            {{#if userInSession.username}}
+              <button class="btn btn-secondary btn-block">
+                <a
+                  href="/users/{{userInSession._id}}/edit"
+                  class="text-light u-0"
+                >edit profile</a>
+              </button>
+            {{/if}}
+            <br />
+          {{else}}
+            <p>Still no logged in user, sorry!</p>
+          {{/if}}
+        </div>
       </div>
-    </div>
-    {{!-- {{#if isOwnProfile}}
-<button><a href="/users/{{userInSession._id}}/edit">edit profile</a></button>
-{{/if}} --}}
-    <div class="col-7">
-      <div class="card p-3 h-100 bg-body-secondary">
-        <h3>Comments</h3>
-        {{#each foundComments}}
-          <p><b>{{dish.name}}</b>: {{content}}</p>
-        {{/each}}
-      </div>
-    </div>
 
+      <div class="col-7">
+        <div class="card p-3 h-100 bg-body-secondary">
+          <h3>Comments on meals posted:</h3>
+          {{#each foundComments}}
+            <ul>
+              <li><b>{{dish.name}}</b>: {{content}}</li>
+            </ul>
+          {{/each}}
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

@@ -1,12 +1,13 @@
-<div class="container">
+<div class="bg-concrete-m-u">
+  <div class="container">
   <h2 class="text-center">All Meals | Administration Panel</h2>
   <button class="btn btn-secondary mb-3" type="button">
     <a href="/meals/create" class="text-light u-0">Add a new meal</a></button>
-  <div class="row row-cols-1 row-cols-md-3 mb-3">
+  <div class="row row-cols-1 row-cols-md-3">
     {{#each allMeals}}
       <div class="col mb-3">
         <div class="card h-100">
-          <img src={{mealImage}} class="card-img-top" alt="meal-image" />
+          <img src={{mealImage}} class="card-img-top img-card-fix" alt="meal-image" />
           <div class="card-body">
             <h5 class="card-title text-center">{{name}}</h5>
             <p class="card-text">
@@ -40,4 +41,5 @@
       </div>
     {{/each}}
   </div>
+</div>
 </div>

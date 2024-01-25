@@ -1,20 +1,31 @@
-<div class="container">
+<div class="bg-concrete-fix">
+  <div class="container">
   <div class="card p-5 bg-light">
     <h2 class="text-center">Create a new meal</h2>
     <form action="/meals/create" method="POST" enctype="multipart/form-data">
 
       {{! MEAL IMAGE }}
-      <div class="div">
+      {{! <div class="div">
         <label class="fw-bold">
           Image:
           <input type="file" name="meal-cover-image" />
         </label>
+      </div> }}
+
+      <div class="mb-3">
+        <label for="formFile" class="form-label fw-bold">Image: </label>
+        <input
+          class="form-control"
+          type="file"
+          id="formFile"
+          value="{{foundMeal.mealImage}}"
+        />
       </div>
 
       {{! NAME }}
       <div class="mb-3">
-        <label for="name" class="form-label fw-bold">Name: </label>
-        <input type="text" name="name" class="form-control" />
+        <label for="nameInput" class="form-label fw-bold">Name: </label>
+        <input type="text" name="name" class="form-control" id="nameInput" />
       </div>
 
       {{! ALLERGENS}}
@@ -56,12 +67,12 @@
       <div class="div mb-3">
         <label for="spiceLevel" class="fw-bold mb-3">Spice Level: </label>
         <select class="form-select" name="spiceLevel" id="spiceLevel">
-          <option >0</option>
-          <option >1</option>
-          <option >2</option>
-          <option >3</option>
-          <option >4</option>
-          <option >5</option>
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
         </select>
       </div>
 
@@ -75,12 +86,12 @@
             id="category"
             aria-label="Example select with button addon"
           >
-            <option >Salad</option>
-            <option >Soup</option>
-            <option >Appetizer</option>
-            <option >Main Dish</option>
-            <option >Side</option>
-            <option >Dessert</option>
+            <option>Salad</option>
+            <option>Soup</option>
+            <option>Appetizer</option>
+            <option>Main Dish</option>
+            <option>Side</option>
+            <option>Dessert</option>
           </select>
         </div>
       </div>
@@ -95,10 +106,10 @@
             aria-label="Example select with button addon"
             name="dishType"
           >
-            <option >Breakfast</option>
-            <option >Lunch</option>
-            <option >Dinner</option>
-            <option >Dessert</option>
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            <option>Dessert</option>
           </select>
         </div>
       </div>
@@ -119,4 +130,5 @@
       {{/if}}
     </div>
   </div>
+</div>
 </div>
