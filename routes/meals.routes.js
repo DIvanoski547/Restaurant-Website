@@ -172,9 +172,17 @@ router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
 // save the updated meal to the database
 router.post('/meals/:mealId/edit', isAdmin, fileUploader.single('meal-cover-image'), (req, res, next) => {
   const { mealId } = req.params;
-  const { name, ingredients, allergens, spiceLevel, category, cuisine, dishType } = req.body;
+  const { name, ingredients, allergens, spiceLevel, category, cuisine, dishType, existingImage } = req.body;
 
-  Meal.findByIdAndUpdate(mealId, { name, ingredients, allergens, spiceLevel, mealImage: req.file.path, category, cuisine, dishType })
+  let mealImage;
+  if (req.file) {
+    mealImage = req.file.path;
+  }
+  else {
+    mealImage = existingImage;
+  }
+
+  Meal.findByIdAndUpdate(mealId, { name, ingredients, allergens, spiceLevel, mealImage, category, cuisine, dishType }, { new: true })
       .then((foundMeal) => {
           console.log(foundMeal);
           res.redirect(`/meals/${foundMeal._id}`)
