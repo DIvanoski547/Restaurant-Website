@@ -70,6 +70,19 @@ router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
   });
 })
 
+/*-----POST DELETE COMMENT ON MEAL-----*/
+// route to delete a specific comment from the database
+router.post('/meals/:mealId/comment/delete', isAdmin, (req, res, next) => {
+  const { commentId } = req.params;
+
+  Comment.findByIdAndDelete(commentId)
+      .then(() => res.redirect(`/meals/${mealId}`))
+      .catch(error => {
+          console.log('Error while deleting comment: ', error);
+          next(error);
+      });
+});
+
 /*-----GET CREATE MEAL-----*/
 // backend display the form which allows new meals to be created
 router.get('/meals/create', isAdmin, (req, res) => {
