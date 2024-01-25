@@ -3,41 +3,45 @@ const { Schema, model } = require("mongoose");
 const mealSchema = new Schema(
   {
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     ingredients: {
       type: String,
-      required: true
+      required: true,
     },
     allergens: {
       type: String,
-      required: true
+      required: true,
     },
     spiceLevel: {
       type: String,
-      enum:['0', '1', '2', '3', '4', '5']
+      enum: ["0", "1", "2", "3", "4", "5"],
     },
     mealImage: {
       type: String,
-      default: 'URL',
-      required: true
+      default: "URL",
+      required: true,
     },
     category: {
       type: String,
-      enum:['Salad', 'Soup', 'Appetizer', 'Dessert', 'Main Dish', 'Side'],
-      required: false
+      enum: ["Salad", "Soup", "Appetizer", "Dessert", "Main Dish", "Side"],
+      required: false,
     },
     cuisine: {
       type: String,
-      required: false
+      required: false,
     },
     dishType: {
       type: String,
-      enum:['Breakfast', 'Lunch', 'Dinner', 'Dessert'],
-      required: false
+      enum: ["Breakfast", "Lunch", "Dinner", "Dessert"],
+      required: false,
     },
-    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+    // favorites: {
+    //   count: { type: Number, default: 0 },
+    //   users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    // },
   },
   {
     timestamps: true,
