@@ -126,7 +126,7 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
 /*-----GET EDIT ANY USER-----*/
 // route to find the user we would like to edit in the database
 // show a pre-filled form to update a user's info
-router.get('/users/:userId/edit', (req, res, next) => {
+router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
