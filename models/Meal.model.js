@@ -20,7 +20,8 @@ const mealSchema = new Schema(
     },
     mealImage: {
       type: String,
-      default: 'URL'
+      default: 'URL',
+      required: true
     },
     category: {
       type: String,
