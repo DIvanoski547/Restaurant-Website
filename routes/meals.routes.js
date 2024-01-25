@@ -72,11 +72,11 @@ router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
 
 /*-----POST DELETE COMMENT ON MEAL-----*/
 // route to delete a specific comment from the database
-router.post('/meals/:mealId/comment/delete', isAdmin, (req, res, next) => {
+router.post('/meals/:mealId/:commentId/delete', isAdmin, (req, res, next) => {
   const { commentId } = req.params;
 
   Comment.findByIdAndDelete(commentId)
-      .then(() => res.redirect(`/meals/${mealId}`))
+      .then((foundComment) => res.redirect(`/meals/${mealId}`, {foundComment}))
       .catch(error => {
           console.log('Error while deleting comment: ', error);
           next(error);

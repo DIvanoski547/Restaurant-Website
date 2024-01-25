@@ -126,7 +126,7 @@ router.get('/users/:userId', isAdmin, (req, res, next) => {
 /*-----GET EDIT ANY USER-----*/
 // route to find the user we would like to edit in the database
 // show a pre-filled form to update a user's info
-router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
+router.get('/users/:userId/edit', (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
@@ -140,7 +140,7 @@ router.get('/users/:userId/edit', isAdmin, (req, res, next) => {
 /*-----POST UPDATE ANY USER-----*/
 // route to submit the form to update the user in the database
 // save the updated user to the database
-router.post('/users/:userId/edit', isAdmin, (req, res, next) => {
+router.post('/users/:userId/edit', (req, res, next) => {
   const { userId } = req.params;
   const { username, role } = req.body;
 

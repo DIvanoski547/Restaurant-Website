@@ -4,28 +4,29 @@
 
       <div class="text-center">
         <h2>Welcome to your profile page,
-          {{userInSession.username}}!
+          {{foundUser.username}}!
         </h2>
         <p>Thank you for creating an account with us!</p></div>
+        {{!-- {{#if isOwnProfile}} --}}
 
       <div class="col-5">
         <div class="card p-3 h-100 bg-u-card bg-body-secondary">
           <h3>Personal Info</h3>
-          {{#if userInSession.username}}
-            <h6>Email: {{userInSession.email}}</h6>
-            <h6>Role: {{userInSession.role}}</h6>
-            {{#if userInSession.username}}
+          {{!-- {{#if userInSession.username}} --}}
+            <h6>Email: {{foundUser.email}}</h6>
+            <h6>Role: {{foundUser.role}}</h6>
+            {{#if isOwnProfile}}
               <button class="btn btn-secondary btn-block">
                 <a
-                  href="/users/{{userInSession._id}}/edit"
+                  href="/users/{{foundUser._id}}/edit"
                   class="text-light u-0"
                 >edit profile</a>
               </button>
             {{/if}}
             <br />
-          {{else}}
+          {{!-- {{else}}
             <p>Still no logged in user, sorry!</p>
-          {{/if}}
+          {{/if}} --}}
         </div>
       </div>
 

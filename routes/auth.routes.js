@@ -148,9 +148,12 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
         Comment.find({ author: userId })
         .populate("dish")
         .then((foundComments) => {
+          if (foundUser._id === req.session.currentUser) {
+            isOwnProfile = userInSession;
+          }
           console.log('foundComments', foundComments);
-          res.render("user/profile", { foundComments, userInSession: req.session.currentUser })
-          // if (foundUser._id === req.session.currentUser) {
+          res.render("user/profile", { foundUser, foundComments, userInSession: req.session.currentUser })
+          // if (foundUser._id === req.session.currentUser._id) {
           //   res.render("user/profile", { foundComments, userInSession: req.session.currentUser });
           // }
         })
