@@ -1,53 +1,89 @@
 <div class="bg-concrete-fix">
-  <div class="container">
+  <div class="container py-3">
 
-    <div class="mx-auto col-6 pt-3">
-      <button class="btn btn-secondary mb-3">
-        <a href="/meals" class="text-light u-0">Back</a>
-      </button>
-      <img
-        src="{{foundMeal.mealImage}}"
-        class="card-img-top mb-3 rounded"
-        alt="meal_img"
-      />
-      <div class="card">
+    <div class="row">
+      <div class="col-6">
+        <img
+          src="{{foundMeal.mealImage}}"
+          class="card-img-top mb-3 rounded"
+          alt="meal_img"
+        />
+        <div class="card mb-3">
 
-        <div class="card-body">
-          <h2 class="card-title text-center">{{foundMeal.name}}</h2>
-          <hr />
-          <p class="card-text">
-            <b>Ingredients</b>:
-            {{foundMeal.ingredients}}</p>
-          <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
-          <p class="card-text"><b>Spice Level:</b>
-            {{foundMeal.spiceLevel}}</p>
-          <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
-          <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
-          <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+          <div class="card-body">
+            <h2 class="card-title text-center">{{foundMeal.name}}</h2>
+            <hr />
+            <p class="card-text">
+              <b>Ingredients</b>:
+              {{foundMeal.ingredients}}</p>
+            <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
+            <p class="card-text"><b>Spice Level:</b>
+              {{foundMeal.spiceLevel}}</p>
+            <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
+            <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
+            <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+          </div>
         </div>
-  {{! BUTTONS }}
-<div class="card-footer d-flex justify-content-between">
 
-       <form action="/meals/{{foundMeal._id}}/delete" method="POST" class="m-0">
-        <button
-          type="submit"
-          class="btn btn-secondary btn-block "
-          type="submit"
-        >Delete meal</button>
-      </form>
-       <a href="/meals/{{foundMeal._id}}/edit"><button
-          class="btn btn-secondary btn-block"
-          type="submit"
-        >Edit meal</button></a>
+        {{! BUTTONS }}
+        <div class="card-footer d-flex justify-content-between">
 
-   
-      
-</div>
+          <form
+            action="/meals/{{foundMeal._id}}/delete"
+            method="POST"
+            class="m-0"
+          >
+            <button
+              type="submit"
+              class="btn btn-secondary btn-block"
+              type="submit"
+            >Delete meal</button>
+          </form>
+          <a href="/meals/{{foundMeal._id}}/edit"><button
+              class="btn btn-secondary btn-block"
+              type="submit"
+            >Edit meal</button></a>
+
+        </div>
+
+      </div>
+      <div class="col-6">
+        {{! SHOW COMMENTS }}
+        <div class="container p-0">
+
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+              <div class="card text-dark">
+                <div class="card-body p-4">
+                  <h4 class="mb-3">Recent comments:</h4>
+                  {{#each foundMeal.comments}}
+
+                    <div class="d-flex flex-start mb-2">
+                      <img
+                        class="rounded-circle shadow-1-strong me-3"
+                        src="/images/user-icon.png"
+                        alt="user_img"
+                        width="60"
+                        height="60"
+                      />
+                      <div>
+                        <h6 class="fw-bold mb-1"><b>{{author.username}}</b></h6>
+                        <div class="d-flex align-items-center mb-1">
+                        </div>
+                        <p class="mb-0">
+                          {{content}}
+                        </p>
+                      </div>
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
 
-  
-   
     </div>
   </div>
 </div>
