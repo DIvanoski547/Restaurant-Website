@@ -9,9 +9,9 @@ const meals = [
   allergens:"gluten",
   spiceLevel: 2,
   mealImage: "/images/spaghettiTomato.jpg",
-  category: "main dish",
+  category: "Main Dish",
   cuisine: "Italian",
-  dishType: "lunch",
+  dishType: "Lunch",
 },
 { 
   name: "Tacos",
@@ -19,9 +19,9 @@ const meals = [
   allergens:"lactose",
   spiceLevel: 0,
   mealImage: "/images/tacos.jpg",
-  category: "main dish",
+  category: "Main Dish",
   cuisine: "Mexican",
-  dishType: "lunch",
+  dishType: "Lunch",
 },
 {
   name: "Pizza",
@@ -29,29 +29,29 @@ const meals = [
   allergens: "lactose, gluten",
   spiceLevel: "0",
   mealImage: "/images/pizza.jpg",
-  category: "main dish",
+  category: "Main Dish",
   cuisine: "Italian",
-  dishType: "lunch"
+  dishType: "Lunch"
 }, 
-// {
-//   name: "Soup",
-//   ingredients: "flour, ketchup, cheese",
-//   allergens: "lactose, gluten",
-//   spiceLevel: "0",
-//   mealImage: "/images/pizza.jpg",
-//   category: "main dish",
-//   cuisine: "Italian",
-//   dishType: "lunch"
-// },
+{
+  name: "Spicy Beef",
+  ingredients: "thinly sliced beef, green onions, sesame seeds, porcini mushrooms, carrots",
+  allergens: "none",
+  spiceLevel: "3",
+  mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706140772/Restaurant-website/elnrftoehmktnqxlanfs.jpg",
+  category: "Main Dish",
+  cuisine: "Asian",
+  dishType: "Dinner"
+},
 {
   name: "Tiramisu",
   ingredients: "Ladyfingers, Mascarpone, Coffee, Heavy Whipped cream, Granulated Sugar, Vanilla Extract, Cocoa powder",
   allergens: "lactose, gluten",
   spiceLevel: "0",
   mealImage: "/images/tiramisu.jpg",
-  category: "dessert",
+  category: "Dessert",
   cuisine: "Italian",
-  dishType: "dessert"
+  dishType: "Dessert"
 }
 ];
 
