@@ -1,134 +1,128 @@
 <div class="bg-concrete-fix">
   <div class="container">
-  <div class="card p-5 bg-light">
-    <h2 class="text-center">Create a new meal</h2>
-    <form action="/meals/create" method="POST" enctype="multipart/form-data">
+    <div class="card p-5 bg-light">
+      <h2 class="text-center">Create a new meal</h2>
+      <form action="/meals/create" method="POST" enctype="multipart/form-data">
 
-      {{! MEAL IMAGE }}
-      {{! <div class="div">
-        <label class="fw-bold">
-          Image:
-          <input type="file" name="meal-cover-image" />
-        </label>
-      </div> }}
+        {{! MEAL IMAGE }}
+        <div class="mb-3">
+          <label for="formFile" class="form-label fw-bold">Image: </label>
+          <input
+            name="meal-cover-image"
+            class="form-control"
+            type="file"
+            id="formFile"
+            value="{{foundMeal.mealImage}}"
+          />
+        </div>
 
-      <div class="mb-3">
-        <label for="formFile" class="form-label fw-bold">Image: </label>
-        <input
-          class="form-control"
-          type="file"
-          id="formFile"
-          value="{{foundMeal.mealImage}}"
-        />
-      </div>
+        {{! NAME }}
+        <div class="mb-3">
+          <label for="nameInput" class="form-label fw-bold">Name: </label>
+          <input type="text" name="name" class="form-control" id="nameInput" />
+        </div>
 
-      {{! NAME }}
-      <div class="mb-3">
-        <label for="nameInput" class="form-label fw-bold">Name: </label>
-        <input type="text" name="name" class="form-control" id="nameInput" />
-      </div>
+        {{! ALLERGENS}}
+        <div class="mb-3">
+          <label for="allergens" class="form-label fw-bold">
+            Allergens:
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            name="allergens"
+            id="allergens"
+            placeholder="lactose, glucose"
+          />
+        </div>
 
-      {{! ALLERGENS}}
-      <div class="mb-3">
-        <label for="allergens" class="form-label fw-bold">
-          Allergens:
-        </label>
-        <input
-          type="text"
-          class="form-control"
-          name="allergens"
-          id="allergens"
-          placeholder="lactose, glucose"
-        />
-      </div>
+        {{! CUISINE }}
+        <div class="mb-3">
+          <label for="cuisine" class="form-label fw-bold">
+            Cuisine:
+          </label>
+          <input type="text" name="cuisine" id="cuisine" class="form-control" />
+        </div>
 
-      {{! CUISINE }}
-      <div class="mb-3">
-        <label for="cuisine" class="form-label fw-bold">
-          Cuisine:
-        </label>
-        <input type="text" name="cuisine" id="cuisine" class="form-control" />
-      </div>
+        {{! INGREDIENTS }}
+        <div class="mb-3">
+          <label for="ingredients" class="form-label fw-bold">Ingredients:
+          </label>
+          <input
+            type="text"
+            id="ingredients"
+            name="ingredients"
+            class="form-control"
+            placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."
+          />
+        </div>
 
-      {{! INGREDIENTS }}
-      <div class="mb-3">
-        <label for="ingredients" class="form-label fw-bold">Ingredients:
-        </label>
-        <input
-          type="text"
-          id="ingredients"
-          name="ingredients"
-          class="form-control"
-          placeholder="whole wheat flour, tomato sauce, mushrooms, bell peppers, cheese, garlic butter."
-        />
-      </div>
-
-      {{! SPICE LEVEL}}
-      <div class="div mb-3">
-        <label for="spiceLevel" class="fw-bold mb-3">Spice Level: </label>
-        <select class="form-select" name="spiceLevel" id="spiceLevel">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-
-      {{! CATEGORY }}
-      <div class="div mb-3">
-        <label for="category" class="mb-3 fw-bold">Category:</label>
-        <div class="input-group mb-3">
-          <select
-            class="form-select"
-            name="category"
-            id="category"
-            aria-label="Example select with button addon"
-          >
-            <option>Salad</option>
-            <option>Soup</option>
-            <option>Appetizer</option>
-            <option>Main Dish</option>
-            <option>Side</option>
-            <option>Dessert</option>
+        {{! SPICE LEVEL}}
+        <div class="div mb-3">
+          <label for="spiceLevel" class="fw-bold mb-3">Spice Level: </label>
+          <select class="form-select" name="spiceLevel" id="spiceLevel">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
           </select>
         </div>
-      </div>
 
-      {{! DISHTYPE }}
-      <div class="div mb-3">
-        <label for="dishType" class="mb-3 fw-bold">Dishtype:</label>
-        <div class="input-group mb-3">
-          <select
-            class="form-select"
-            id="dishType"
-            aria-label="Example select with button addon"
-            name="dishType"
-          >
-            <option>Breakfast</option>
-            <option>Lunch</option>
-            <option>Dinner</option>
-            <option>Dessert</option>
-          </select>
+        {{! CATEGORY }}
+        <div class="div mb-3">
+          <label for="category" class="mb-3 fw-bold">Category:</label>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              name="category"
+              id="category"
+              aria-label="Example select with button addon"
+            >
+              <option>Salad</option>
+              <option>Soup</option>
+              <option>Appetizer</option>
+              <option>Main Dish</option>
+              <option>Side</option>
+              <option>Dessert</option>
+            </select>
+          </div>
         </div>
-      </div>
 
-      {{! BUTTONS }}
-      <div class="text-end">
-        <button class="btn btn-secondary btn-block" type="submit">Create New
-          Meal</button>
-        <button class="btn btn-secondary btn-block">
-          <a href="/meals" class="u-0 text-light">Back</a>
-        </button>
-      </div>
-    </form>
+        {{! DISHTYPE }}
+        <div class="div mb-3">
+          <label for="dishType" class="mb-3 fw-bold">Dishtype:</label>
+          <div class="input-group mb-3">
+            <select
+              class="form-select"
+              id="dishType"
+              aria-label="Example select with button addon"
+              name="dishType"
+            >
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+              <option>Dessert</option>
+            </select>
+          </div>
+        </div>
 
-    <div>
-      {{#if errorMessage}}
-        <p style="color: red;" class="error">{{errorMessage}}</p>
-      {{/if}}
+        {{! BUTTONS }}
+        <div class="text-end">
+          <button class="btn btn-secondary btn-block" type="submit">Create New
+            Meal</button>
+          <button class="btn btn-secondary btn-block">
+            <a href="/meals" class="u-0 text-light">Back</a>
+          </button>
+        </div>
+      </form>
+
+      <div>
+        {{#if errorMessage}}
+          <p style="color: red;" class="error">{{errorMessage}}</p>
+        {{/if}}
+      </div>
     </div>
   </div>
-</div>
 </div>

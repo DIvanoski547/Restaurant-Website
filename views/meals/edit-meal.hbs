@@ -10,21 +10,19 @@
         enctype="multipart/form-data"
       >
 
-        {{!-- <div class="div">
-        <label class="fw-bold">
-          Image:
-          <input type="file" name="meal-cover-image"/>
-          <input type="text" name="existingImage" hidden value="{{foundMeal.mealImage}}"/>
-        </label>  
-      </div> --}}
-
         {{! MEAL IMAGE }}
         <div class="mb-3">
           <label for="formFile" class="form-label fw-bold">Image: </label>
           <input
             class="form-control"
             type="file"
+            name="meal-cover-image"
             id="formFile"
+          />
+          <input
+            type="text"
+            name="existingImage"
+            hidden
             value="{{foundMeal.mealImage}}"
           />
         </div>
@@ -47,6 +45,7 @@
           </label>
           <input
             type="text"
+            name="allergens"
             class="form-control"
             value="{{foundMeal.allergens}}"
           />
@@ -54,13 +53,14 @@
 
         {{! CUISINE }}
         <div class="mb-3">
-          <label class="form-label fw-bold">
+          <label for="cuisine" class="form-label fw-bold">
             Cuisine:
           </label>
           <input
             type="text"
             name="cuisine"
             class="form-control"
+            id="cuisine"
             value="{{foundMeal.cuisine}}"
           />
         </div>
@@ -69,7 +69,7 @@
         <div class="div mb-3">
           <label for="spiceLevel" class="fw-bold mb-3">Spice Level: </label>
           <select class="form-select" name="spiceLevel" id="spiceLevel">
-            <option value="{{_id}}">{{foundMeal.spiceLevel}}</option>
+            <option value="{{foundMeal.spiceLevel}}">{{foundMeal.spiceLevel}}</option>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -83,12 +83,8 @@
         <div class="div mb-3">
           <label for="category" class="mb-3 fw-bold">Category:</label>
           <div class="input-group mb-3">
-            <select
-              class="form-select"
-              id="inputGroupSelect03"
-              aria-label="Example select with button addon"
-            >
-              <option value="{{_id}}">{{foundMeal.category}}</option>
+            <select class="form-select" name="category" id="category">
+              <option value="{{foundMeal.category}}">{{foundMeal.category}}</option>
               <option>Salad</option>
               <option>Soup</option>
               <option>Appetizer</option>
@@ -101,14 +97,10 @@
 
         {{! DISHTYPE }}
         <div class="div mb-3">
-          <label for="category" class="mb-3 fw-bold">Dishtype:</label>
+          <label for="dishType" class="mb-3 fw-bold">Dishtype:</label>
           <div class="input-group mb-3">
-            <select
-              class="form-select"
-              id="inputGroupSelect03"
-              aria-label="Example select with button addon"
-            >
-              <option value="{{_id}}">{{foundMeal.dishType}}</option>
+            <select class="form-select" name="dishType" id="dishType">
+              <option value="{{foundMeal.dishType}}">{{foundMeal.dishType}}</option>
               <option>Breakfast</option>
               <option>Lunch</option>
               <option>Dinner</option>
