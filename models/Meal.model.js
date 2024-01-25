@@ -20,11 +20,12 @@ const mealSchema = new Schema(
     },
     mealImage: {
       type: String,
-      default: 'URL'
+      default: 'URL',
+      required: true
     },
     category: {
       type: String,
-      enum:['salad', 'soup', 'appetizer', 'dessert', 'main dish', 'side'],
+      enum:['Salad', 'Soup', 'Appetizer', 'Dessert', 'Main Dish', 'Side'],
       required: false
     },
     cuisine: {
@@ -33,7 +34,7 @@ const mealSchema = new Schema(
     },
     dishType: {
       type: String,
-      enum:['breakfast', 'lunch', 'dinner', 'dessert'],
+      enum:['Breakfast', 'Lunch', 'Dinner', 'Dessert'],
       required: false
     },
     comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
