@@ -1,20 +1,53 @@
-<ul>
-    <li>
-        <a href="/meals">All meals</a>
-    </li>
-</ul>
-<h2>{{foundMeal.name}}</h2>
-<img src="{{foundMeal.mealImage}}">
-<p><b>Ingredients:</b> {{foundMeal.ingredients}}</p>
-<p><b>Allergens:</b> {{foundMeal.allergens}}</p>
-<p><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p>
-<p><b>Category:</b> {{foundMeal.category}}</p>
-<p><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
-<p><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+<div class="bg-concrete-fix">
+  <div class="container">
 
-<button><a href="/meals/{{foundMeal._id}}/edit">Edit meal</a></button>
-<br>
-<br>
-<form action="/meals/{{foundMeal._id}}/delete" method="POST">
-    <button type="submit">Delete meal</button>
-</form>
+    <div class="mx-auto col-6 pt-3">
+      <button class="btn btn-secondary mb-3">
+        <a href="/meals" class="text-light u-0">all-meals</a>
+      </button>
+      <img
+        src="{{foundMeal.mealImage}}"
+        class="card-img-top mb-3 rounded"
+        alt="meal_img"
+      />
+      <div class="card">
+
+        <div class="card-body">
+          <h2 class="card-title text-center">{{foundMeal.name}}</h2>
+          <hr />
+          <p class="card-text">
+            <b>Ingredients</b>:
+            {{foundMeal.ingredients}}</p>
+          <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
+          <p class="card-text"><b>Spice Level:</b>
+            {{foundMeal.spiceLevel}}</p>
+          <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
+          <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
+          <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+        </div>
+  {{! BUTTONS }}
+<div class="card-footer d-flex justify-content-between">
+
+       <form action="/meals/{{foundMeal._id}}/delete" method="POST" class="m-0">
+        <button
+          type="submit"
+          class="btn btn-secondary btn-block "
+          type="submit"
+        >Delete meal</button>
+      </form>
+       <a href="/meals/{{foundMeal._id}}/edit"><button
+          class="btn btn-secondary btn-block"
+          type="submit"
+        >Edit meal</button></a>
+
+   
+      
+</div>
+
+      </div>
+
+  
+   
+    </div>
+  </div>
+</div>

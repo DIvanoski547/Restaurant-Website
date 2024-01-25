@@ -1,80 +1,101 @@
-<div class="bg-concrete-m-u">
-  <div class="container">
-    <button class="btn btn-secondary mb-3">
-      <a href="/menu" class="text-light u-0"> Back to menu</a>
-    </button>
+<div class="bg-concrete-fix">
+  <div class="container py-3">
+    
 
-    <img class="card mb-3" />
+    <div class="row">
+      <div class="col-6">
+        <img
+          src="{{foundMeal.mealImage}}"
+          class="card-img-top mb-3 rounded"
+          alt="meal_img"
+        />
+        <div class="card">
 
-    <img src="{{foundMeal.mealImage}}" class="card-img-top" alt="meal_img" />
-    <div class="card-body">
-      <h2 class="card-title text-center">{{foundMeal.name}}</h2>
-      <p class="card-text"> <b>Ingredients</b>: {{foundMeal.ingredients}}</p>
-      <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
-      <p class="card-text"><b>Spice Level:</b> {{foundMeal.spiceLevel}}</p>
-      <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
-      <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
-      <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
-    </div>
+          <div class="card-body">
+            <h2 class="card-title text-center">{{foundMeal.name}}</h2>
+            <hr />
+            <p class="card-text">
+              <b>Ingredients</b>:
+              {{foundMeal.ingredients}}</p>
+            <p class="card-text"><b>Allergens:</b> {{foundMeal.allergens}}</p>
+            <p class="card-text"><b>Spice Level:</b>
+              {{foundMeal.spiceLevel}}</p>
+            <p class="card-text"><b>Category:</b> {{foundMeal.category}}</p>
+            <p class="card-text"><b>Cuisine:</b> {{foundMeal.cuisine}}</p>
+            <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
+          </div>
+        </div>
 
-    {{! SHOW COMMENTS }}
-    <div class="container p-0">
-      <hr class="hr-width" />
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-12">
-          <div class="card text-dark">
-            <div class="card-body p-4">
-              <h4 class="mb-3">Recent comments:</h4>
-              {{#each foundMeal.comments}}
+      </div>
+      <div class="col-6">
+        {{! SHOW COMMENTS }}
+        <div class="container p-0">
 
-                <div class="d-flex flex-start">
-                  <img
-                    class="rounded-circle shadow-1-strong me-3"
-                    src=""
-                    alt="user_img"
-                    width="60"
-                    height="60"
-                  />
-                  <div>
-                    <h6 class="fw-bold mb-1"><b>{{author.username}}</b></h6>
-                    <div class="d-flex align-items-center mb-3">
-                      {{! <p class="mb-0">
-                    March 07, 2021
-                    <span class="badge bg-primary">Pending</span>
-                  </p> }}
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+              <div class="card text-dark">
+                <div class="card-body p-4">
+                  <h4 class="mb-3">Recent comments:</h4>
+                  {{#each foundMeal.comments}}
+
+                    <div class="d-flex flex-start mb-2">
+                      <img
+                        class="rounded-circle shadow-1-strong me-3"
+                        src="/images/user-icon.png"
+                        alt="user_img"
+                        width="60"
+                        height="60"
+                      />
+                      <div>
+                        <h6 class="fw-bold mb-1"><b>{{author.username}}</b></h6>
+                        <div class="d-flex align-items-center mb-1">
+                        </div>
+                        <p class="mb-0">
+                          {{content}}
+                        </p>
+                      </div>
                     </div>
-                    <p class="mb-0">
-                      {{content}}
-                    </p>
-                  </div>
+                  {{/each}}
                 </div>
-              {{/each}}
+              </div>
             </div>
           </div>
         </div>
+
+        {{! COMMENTS FORM }}
+
+        {{#if userInSession.username}}
+          <hr class="hr-width" />
+          <div class="card p-3">
+            <h2>Leave a comment</h2>
+
+            <form
+              action="/menu/meal/{{foundMeal._id}}/create-comment"
+              method="POST"
+            >
+              <label for="comments" class="form-group"></label>
+
+              <textarea
+                id="comments"
+                type="text"
+                name="content"
+                class="form-control custom-textarea mb-3"
+              > </textarea>
+
+              {{! <br /> }}
+
+              <div class="text-end">
+                <button
+                  class="btn btn-secondary btn-block"
+                  type="submit"
+                >Submit</button>
+              </div>
+
+            </form>
+          </div>
+        {{/if}}
       </div>
     </div>
-
-    {{! COMMENTS FORM }}
-
-    {{#if userInSession.username}}
-      <hr class="hr-width" />
-      <div class="card mb-3 p-3">
-        <h2>Leave a comment</h2>
-
-        <form
-          action="/menu/meal/{{foundMeal._id}}/create-comment"
-          method="POST"
-        >
-          <label>
-            Content:
-            <textarea type="text" name="content"> </textarea>
-          </label>
-
-          <button type="submit"> Submit comment </button>
-        </form>
-      </div>
-    {{/if}}
 
   </div>
 

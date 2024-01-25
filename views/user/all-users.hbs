@@ -1,17 +1,17 @@
 <div class="bg-concrete-m-u">
-  <div class="container">
+  <div class="container py-3">
     <h2 class="text-center">All Users</h2>
 
     {{! BUTTON }}
-    <div class="div">
-      <button class="btn btn-secondary btn-block mb-3">
+    <div >
+      <button class="btn btn-secondary btn-block mb-2">
         <a href="/users/create" class="u-0 text-light">Add New User</a>
       </button>
     </div>
 
     {{! User }}
     {{#each allUsers}}
-      <div class="card mb-3">
+      <div class="card mt-3">
         <div class="card-header card-color-u">
           <p class="card-text"><b>Username: </b>{{username}}
           </p>
