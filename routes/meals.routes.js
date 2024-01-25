@@ -146,6 +146,12 @@ router.get('/meals/:mealId', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
 
   Meal.findById(mealId)
+    .populate({
+      path: "comments",
+      populate: {
+        path: "author",
+          select: "username"
+      }})
       .then(foundMeal => res.render('meals/meal-details', { foundMeal, userInSession: req.session.currentUser }))
       .catch(error => {
           console.log('Error while retrieving meal details: ', error);
