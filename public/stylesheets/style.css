@@ -85,7 +85,7 @@ h1 {
 }
 
 .accordion-item h2.accordion-header button.accordion-button:hover {
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
   color: black;
   font-weight: bold;
 }
@@ -99,7 +99,14 @@ h1 {
   height: calc(100vh - 76px);
 }
 
-.bg_marble {
+.bg-concrete-fix {
+  background-image: url(/images/bg_concrete1.jpg);
+  background-size: cover;
+  background-repeat: repeat;
+  height: 100vh;
+}
+
+.bg-concrete {
   background-image: url(/images/bg_concrete1.jpg);
   background-size: cover;
   background-repeat: repeat;
@@ -115,7 +122,6 @@ h1 {
   height: 300px;
   border-radius: 5px;
 }
-
 
 .favorite-icon {
   position: absolute;
