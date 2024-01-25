@@ -8,6 +8,6 @@ const favoritesSchema = new Schema(
   }
 );
 
-const favorites = model("Favorites", favoritesSchema);
+const Favorites = model("Favorites", favoritesSchema);
 
-module.exports = favorites;
+module.exports = Favorites;
