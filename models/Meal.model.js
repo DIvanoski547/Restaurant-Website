@@ -37,11 +37,7 @@ const mealSchema = new Schema(
       enum: ["Breakfast", "Lunch", "Dinner", "Dessert"],
       required: false,
     },
-    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
-    // favorites: {
-    //   count: { type: Number, default: 0 },
-    //   users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-    // },
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
   },
   {
     timestamps: true,
