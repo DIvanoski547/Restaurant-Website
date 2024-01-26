@@ -34,23 +34,73 @@ const meals = [
   dishType: "Lunch"
 }, 
 {
-  name: "Spicy Beef",
+  name: "Spicy Beef Platter",
   ingredients: "thinly sliced beef, green onions, sesame seeds, porcini mushrooms, carrots",
   allergens: "none",
   spiceLevel: "3",
   mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706140772/Restaurant-website/elnrftoehmktnqxlanfs.jpg",
   category: "Main Dish",
-  cuisine: "Asian",
+  cuisine: "Southeast Asian",
   dishType: "Dinner"
 },
 {
   name: "Tiramisu",
-  ingredients: "Ladyfingers, Mascarpone, Coffee, Heavy Whipped cream, Granulated Sugar, Vanilla Extract, Cocoa powder",
+  ingredients: "ladyfingers, mascarpone, coffee, heavy whipped cream, granulated sugar, vanilla extract, cocoa powder",
   allergens: "lactose, gluten",
   spiceLevel: "0",
   mealImage: "/images/tiramisu.jpg",
   category: "Dessert",
   cuisine: "Italian",
+  dishType: "Dessert"
+},
+{
+  name: "Biryani",
+  ingredients: "basmati rice, boiled egg, saffron, fennel seeds, butter, pepper, cloves, ginger, onions, tomatoes, green chilies, garlic",
+  allergens: "none",
+  spiceLevel: "2",
+  mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706297021/Restaurant-website/kyqjv67fu4zpweppdwj2.jpg",
+  category: "Side",
+  cuisine: "South Asian",
+  dishType: "Lunch"
+},
+{
+  name: "Crunchy White Rice",
+  ingredients: "basmati rice, saffron, cashews, diced carrots, corn, green peas, green beans",
+  allergens: "nuts (cashews)",
+  spiceLevel: "0",
+  mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706297528/Restaurant-website/evdzrbho81ic5vb3uurw.jpg",
+  category: "Side",
+  cuisine: "South Asian",
+  dishType: "Lunch"
+},
+{
+  name: "Bourbon Chicken and Rice",
+  ingredients: "yellow rice, chopped bourbon style chicken, potato wedges, red onions, tomatoes, cucumber, lemon ",
+  allergens: "lactose",
+  spiceLevel: "2",
+  mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706297528/Restaurant-website/o0apsax2w0js3r84z5xe",
+  category: "Main Dish",
+  cuisine: "US-American",
+  dishType: "Dinner"
+},
+{
+  name: "White Rice and Curry Potatoes",
+  ingredients: "basmati rice, saffron, cooked potatoes, parsley, lime, ginger, garlic, onions, pepper",
+  allergens: "none",
+  spiceLevel: "3",
+  mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706298464/Restaurant-website/uzd67m3lk7qnxujs5jug.jpg",
+  category: "Main Dish",
+  cuisine: "South Asian",
+  dishType: "Dinner"
+},
+{
+  name: "NY Cheesecake",
+  ingredients: "eggs, sugar, butter cookies, cream cheese, lemon juice, curd cheese",
+  allergens: "lactose, gluten",
+  spiceLevel: "0",
+  mealImage: "https://res.cloudinary.com/dcsk4b8kl/image/upload/v1706302200/Restaurant-website/movp4gjze80ji1gyt3wn.jpg",
+  category: "Dessert",
+  cuisine: "US-American",
   dishType: "Dessert"
 }
 ];
