@@ -1,8 +1,27 @@
 <div class="bg-concrete-fix">
   <div class="container py-3">
 
+    {{! BUTTONS }}
+    <div class="card-footer mb-1 d-flex">
+      <button class="btn btn-secondary mb-3 me-2" type="button">
+        <a href="/meals" class="text-light u-0">Back to meals</a></button>
+      <form action="/meals/{{foundMeal._id}}/delete" method="POST" class="me-2">
+        <button
+          type="submit"
+          class="btn btn-secondary btn-block"
+          type="submit"
+        >Delete meal</button>
+      </form>
+      <a href="/meals/{{foundMeal._id}}/edit"><button
+          class="btn btn-secondary btn-block"
+          type="submit"
+        >Edit meal</button></a>
+
+    </div>
+
     <div class="row">
       <div class="col-6">
+
         <img
           src="{{foundMeal.mealImage}}"
           class="card-img-top mb-3 rounded"
@@ -24,41 +43,17 @@
             <p class="card-text"><b>Dish Type:</b> {{foundMeal.dishType}}</p>
           </div>
         </div>
-
-        {{! BUTTONS }}
-        <div class="card-footer d-flex justify-content-between">
-
-          <form
-            action="/meals/{{foundMeal._id}}/delete"
-            method="POST"
-            class="m-0"
-          >
-            <button
-              type="submit"
-              class="btn btn-secondary btn-block"
-              type="submit"
-            >Delete meal</button>
-          </form>
-          <a href="/meals/{{foundMeal._id}}/edit"><button
-              class="btn btn-secondary btn-block"
-              type="submit"
-            >Edit meal</button></a>
-
-        </div>
-
       </div>
 
+      {{! SHOW COMMENTS }}
       <div class="col-6">
-        {{! SHOW COMMENTS }}
         <div class="container p-0">
-
           <div class="row d-flex justify-content-center">
             <div class="col-md-12">
               <div class="card text-dark">
                 <div class="card-body p-4">
                   <h4 class="mb-3">Recent comments:</h4>
                   {{#each foundMeal.comments}}
-
                     <div class="d-flex flex-start mb-2">
                       <img
                         class="rounded-circle shadow-1-strong me-3"
@@ -88,9 +83,7 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
