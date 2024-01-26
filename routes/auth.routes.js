@@ -16,12 +16,15 @@ const Comment = require("../models/Comment.model");
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
 /*-----GET SIGNUP PAGE-----*/
+// route to display signup page
 router.get("/signup", isLoggedOut, (req, res, next) => {
   console.log("req.session Signup", req.session)
   res.render("auth/signup")
 });
 
 /*-----POST SIGNUP PAGE-----*/
+// route to submit information entered on signup page,
+// create password hash and create an account
 router.post("/signup", isLoggedOut, (req, res, next) => {
   const { username, email, password } = req.body;
   const { userId } = req.params;
@@ -78,11 +81,14 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
 });
 
 /*-----GET LOGIN PAGE-----*/
+// route to display login page
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login")
 });
 
 /*-----POST LOGIN ROUTE-----*/
+// route to locate user in database, compare entered password with stored password
+// and log user into website and create an active session
 router.post("/login", isLoggedOut, (req, res, next) => {
   console.log('ACTIVE SESSION =====> ', req.session);
   const { email, password } = req.body;
@@ -128,6 +134,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 /*-----POST LOGOUT-----*/
+// route to kill the current session and, ultimately, log user out
 router.post('/logout', isLoggedIn, (req, res, next) => {
   req.session.destroy(err => {
     if (err) next(err);
@@ -137,10 +144,10 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
 });
 
 /*-----GET PROFILE PAGE-----*/
+// route to retrieve logged in user's profile page including comments
   router.get("/profile/:userId", isLoggedIn, (req, res, next) => {
     const { userId } = req.params;
     console.log('req.params', req.params)
-    // let isOwnProfile;
 
     User.findById(userId)
       .then((foundUser) => {
@@ -148,9 +155,6 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
         Comment.find({ author: userId })
         .populate("dish")
         .then((foundComments) => {
-          // if (foundUser._id === req.session.currentUser) {
-          //   isOwnProfile = userInSession;
-          // } Does not yet work
           console.log('foundComments', foundComments);
           res.render("user/profile", { foundUser, foundComments, userInSession: req.session.currentUser })
         })
