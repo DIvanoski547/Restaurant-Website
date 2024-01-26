@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Require necessary middleware to control access to specific routes
-const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../middleware/route-guard.js');
+const { isAdmin } = require('../middleware/route-guard.js');
 
 // Require the Meal and Comment models in order to interact with the database
 const Meal = require("../models/Meal.model");
@@ -26,8 +26,8 @@ router.get("/menu", (req, res, next) => {
       });
   });
 
-/*-----GET SINGLE MEAL-----*/
-// public route to display a specific meal on the menu/meal page
+/*-----GET SINGLE MEAL FROM MENU-----*/
+// public route to display a specific meal on the menu page
 router.get("/menu/meal/:mealId", (req, res, next) => {
   const { mealId } = req.params;
 
@@ -49,8 +49,8 @@ router.get("/menu/meal/:mealId", (req, res, next) => {
       });
 });
 
-/*-----POST COMMENT ON MEAL-----*/ 
-// route to post comment on a specific meal on the menu/meal page
+/*-----POST COMMENT ON MEAL ON MENU-----*/ 
+// route to post comment on a specific meal on the menu page
 router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
   const { content } = req.body;
   const { mealId } = req.params;
@@ -69,27 +69,16 @@ router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
   });
 })
 
-// /*-----POST DELETE COMMENT ON MEAL-----*/
-// // route to delete a specific comment from the database
-// router.post('/meals/:mealId/:commentId/delete', isAdmin, (req, res, next) => {
-//   const { commentId } = req.params;
-
-//   Comment.findByIdAndDelete(commentId)
-//       .then((foundComment) => res.redirect(`/meals/${mealId}`, {foundComment}))
-//       .catch(error => {
-//           console.log('Error while deleting comment: ', error);
-//           next(error);
-//       });
-// });
-
 /*-----GET CREATE MEAL-----*/
-// backend display the form which allows new meals to be created
+// backend route to show form, which allows only administrators to
+// create meals
 router.get('/meals/create', isAdmin, (req, res) => {
   res.render('meals/new-meal', { userInSession: req.session.currentUser })
 });
 
 /*-----POST CREATE MEAL-----*/
-// backend route to create a new meal using data submitted via form
+// backend route to create a new meal using data submitted by
+// an admin via form as well as ability to upload image to cloudinary
 router.post('/meals/create', isAdmin, fileUploader.single('meal-cover-image'), (req, res, next) => {
   const { name, ingredients, allergens, spiceLevel, category, cuisine, dishType } = req.body;
 
@@ -126,7 +115,8 @@ router.post('/meals/create', isAdmin, fileUploader.single('meal-cover-image'), (
 });
 
 /*-----GET ALL MEALS-----*/
-// backend route to display a list of all meals found in the database
+// backend route, for an admin, to display a list of all meals found in the database
+// on the adminstration panel
 router.get('/meals', isAdmin, (req, res, next) => {
   Meal.find()
       .then((allMeals) => {
@@ -140,7 +130,7 @@ router.get('/meals', isAdmin, (req, res, next) => {
 });
 
 /*-----GET SINGLE MEAL-----*/
-// backend route to display a specific meal on the meal-details page
+// backend route, for an admin, to display a specific meal on the meal-details page
 router.get('/meals/:mealId', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
 
@@ -159,7 +149,7 @@ router.get('/meals/:mealId', isAdmin, (req, res, next) => {
 });
 
 /*-----POST DELETE MEAL-----*/
-// backend route to delete a specific meal from the database
+// backend route, for an admin, to delete a specific meal from the database
 router.post('/meals/:mealId/delete', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
 
@@ -172,7 +162,7 @@ router.post('/meals/:mealId/delete', isAdmin, (req, res, next) => {
 });
 
 /*-----GET EDIT ANY MEAL-----*/
-// backend route to find the meal we would like to edit in the database
+// backend route to find the meal an admin like to edit in the database
 // show a pre-filled form to update a meal's info
 router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
   const { mealId } = req.params;
@@ -186,8 +176,8 @@ router.get('/meals/:mealId/edit', isAdmin, (req, res, next) => {
 });
 
 /*-----POST UPDATE ANY MEAL-----*/
-// backend route to submit the form to update the meal in the database
-// save the updated meal to the database
+// backend route, for an admin, to submit the form to update the meal in the database
+// save the updated meal to the database including an update image
 router.post('/meals/:mealId/edit', isAdmin, fileUploader.single('meal-cover-image'), (req, res, next) => {
   const { mealId } = req.params;
   const { name, ingredients, allergens, spiceLevel, category, cuisine, dishType, existingImage } = req.body;
