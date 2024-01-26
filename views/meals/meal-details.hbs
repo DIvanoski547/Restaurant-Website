@@ -47,7 +47,7 @@
         </div>
 
       </div>
-      
+
       <div class="col-6">
         {{! SHOW COMMENTS }}
         <div class="container p-0">
@@ -74,6 +74,12 @@
                         <p class="mb-0">
                           {{content}}
                         </p>
+                        {{!-- <form
+                          action="/meals/{{foundMeal._id}}/{{foundComment._id}}/delete"
+                          method="POST"
+                        >
+                          <button type="submit">Delete comment</button>
+                        </form> --}}
                       </div>
                     </div>
                   {{/each}}
