@@ -7,7 +7,6 @@ const { isLoggedIn, isLoggedOut, isAdmin, isAdminOrModerator } = require('../mid
 // Require the Meal and Comment models in order to interact with the database
 const Meal = require("../models/Meal.model");
 const Comment = require("../models/Comment.model");
-const User = require("../models/User.model");
 
 // Require the fileUploader from the cloudinary.config.js file to be able to upload files to cloudinary
 // Will use as a middleware on create meal route
@@ -70,18 +69,18 @@ router.post("/menu/meal/:mealId/create-comment", (req, res, next) => {
   });
 })
 
-/*-----POST DELETE COMMENT ON MEAL-----*/
-// route to delete a specific comment from the database
-router.post('/meals/:mealId/:commentId/delete', isAdmin, (req, res, next) => {
-  const { commentId } = req.params;
+// /*-----POST DELETE COMMENT ON MEAL-----*/
+// // route to delete a specific comment from the database
+// router.post('/meals/:mealId/:commentId/delete', isAdmin, (req, res, next) => {
+//   const { commentId } = req.params;
 
-  Comment.findByIdAndDelete(commentId)
-      .then((foundComment) => res.redirect(`/meals/${mealId}`, {foundComment}))
-      .catch(error => {
-          console.log('Error while deleting comment: ', error);
-          next(error);
-      });
-});
+//   Comment.findByIdAndDelete(commentId)
+//       .then((foundComment) => res.redirect(`/meals/${mealId}`, {foundComment}))
+//       .catch(error => {
+//           console.log('Error while deleting comment: ', error);
+//           next(error);
+//       });
+// });
 
 /*-----GET CREATE MEAL-----*/
 // backend display the form which allows new meals to be created
