@@ -140,7 +140,7 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
   router.get("/profile/:userId", isLoggedIn, (req, res, next) => {
     const { userId } = req.params;
     console.log('req.params', req.params)
-    let isOwnProfile;
+    // let isOwnProfile;
 
     User.findById(userId)
       .then((foundUser) => {
@@ -148,14 +148,11 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
         Comment.find({ author: userId })
         .populate("dish")
         .then((foundComments) => {
-          if (foundUser._id === req.session.currentUser) {
-            isOwnProfile = userInSession;
-          }
+          // if (foundUser._id === req.session.currentUser) {
+          //   isOwnProfile = userInSession;
+          // } Does not yet work
           console.log('foundComments', foundComments);
           res.render("user/profile", { foundUser, foundComments, userInSession: req.session.currentUser })
-          // if (foundUser._id === req.session.currentUser._id) {
-          //   res.render("user/profile", { foundComments, userInSession: req.session.currentUser });
-          // }
         })
       })
       .catch(error => {
