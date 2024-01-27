@@ -1,46 +1,22 @@
-{{!-- <div class="bg-concrete-fix">
-  <div class="container">
-  <h2>{{foundUser.username}}</h2>
-<p><b>Email:</b> {{foundUser.email}}</p>
-<p><b>Role:</b> {{foundUser.role}}</p>
-
-
-
- <div class="text-end">
-        <button class="btn btn-secondary btn-block">
-          <a href="/users/{{foundUser._id}}/edit" class="u-0 text-light">Edit</a>
-        </button>
-        <button class="btn btn-secondary btn-block">
-          <a href="/users" class="u-0 text-light">Back</a>
-        </button>
-      </div>
-
-<h2>comments</h2>
-{{#each foundComments}}
-  <p><b>{{dish.name}}</b>: {{content}}</p>
-{{/each}}
-</div>
-</div> --}}
-
 <div class="bg-concrete-fix">
   <div class="container">
     <div class="row">
 
       <div class="text-center">
         <h2>Username: {{foundUser.username}}</h2>
-        
-<div class="text-start mb-3">
-        
-        <button class="btn btn-secondary btn-block">
-          <a href="/users" class="u-0 text-light">Back</a>
-        </button>
-        <button class="btn btn-secondary btn-block">
-          <a
-            href="/users/{{foundUser._id}}/edit"
-            class="u-0 text-light"
-          >Edit</a>
-        </button>
-      </div>
+
+        <div class="text-start mb-3">
+
+          <button class="btn btn-secondary btn-block">
+            <a href="/users" class="u-0 text-light">Back</a>
+          </button>
+          <button class="btn btn-secondary btn-block">
+            <a
+              href="/users/{{foundUser._id}}/edit"
+              class="u-0 text-light"
+            >Edit</a>
+          </button>
+        </div>
 
       </div>
 
@@ -59,12 +35,14 @@
           <h3>Comments on meals posted:</h3>
           {{#each foundComments}}
             <ul>
-              <li><b>{{dish.name}}</b>: {{content}}</li>
+              <li><b>{{dish.name}}: </b>{{content}}
+                <p class="mb-0 fw-lighter">
+                  {{createdAt}}</p></li>
             </ul>
           {{/each}}
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
