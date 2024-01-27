@@ -12,9 +12,9 @@
         <div class="card p-3 h-100 bg-body-secondary">
           <h3>Personal Info</h3>
 
-            <h6>Email: {{foundUser.email}}</h6>
-            <h6>Role: {{foundUser.role}}</h6>
-            <br /> 
+          <h6>Email: {{foundUser.email}}</h6>
+          <h6>Role: {{foundUser.role}}</h6>
+          <br />
         </div>
       </div>
 
@@ -23,7 +23,10 @@
           <h3>Comments on meals posted:</h3>
           {{#each foundComments}}
             <ul>
-              <li><b>{{dish.name}}</b>: {{content}}</li>
+              <li><b>{{dish.name}}: </b>{{content}}
+                <p class="mb-0 fw-lighter">
+                  {{createdAt}}</p></li>
+              <hr />
             </ul>
           {{/each}}
         </div>
